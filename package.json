@@ -1,7 +1,17 @@
 {
+  "homepage": "https://er1v3s.github.io/rybiarze-online-shop",
   "name": "rybiarze.com",
+  "description": "A module of my own ERP system | oneline shop about fishing equipment",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Er1v3s/rybiarze-online-shop"
+  },
+  "url": "https://github.com/Er1v3s/rybiarze-online-shop",
+  "email": "filip.statkiewicz25@gmail.com",
+  "author": "Filip Statkiewicz",
   "version": "0.0.0",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
