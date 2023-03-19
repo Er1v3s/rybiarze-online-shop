@@ -1,6 +1,6 @@
-## Live preview - **https://er1v3s.github.io/**
+## Live preview - **https://er1v3s.github.io/rybiarze-online-shop**
 
-# Vanilla TypeScript project
+# Vanilla TypeScript online shop about fishing equipment as a part of my own ERP system project
 
 ## Available Scripts
 
