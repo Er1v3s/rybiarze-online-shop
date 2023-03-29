@@ -1,31 +1,19 @@
-$breakpoints: (
-    xsmall: (
-        max-width: 320px,
-    ),
-    small: (
-        max-width: 425px,
-    ),
-    medium: (
-        max-width: 768px,
-    ),
-    xmedium: (
-        max-width: 1024px,
-    ),
-    large: (
-        max-width: 1440px,
-    ),
-    xlarge: (
-        min-width: 1441px,
-    ),
+$min-widths: (
+    xsmall: 320px,
+    small: 425px,
+    medium: 768px,
+    xmedium: 1024px,
+    large: 1440px,
+    xlarge: 1920px,
 );
 
-@mixin mq($breakpoint) {
-    $size: map-get($breakpoints, $breakpoint);
-    @if ($size) {
-        @media #{$size} {
-            @content;
-        }
-    } @else {
-        @error '"#{$breakpoint}" - Does not recognize this resolution size';
+@function min-width-for($width-name) {
+    $width: map-get($min-widths, $width-name);
+    @return "(min-width: #{$width})";
+}
+
+@mixin media-min-width($min-breakpoint-name) {
+    @media #{min-width-for($min-breakpoint-name)} {
+        @content;
     }
 }
