@@ -1,0 +1,31 @@
+$breakpoints: (
+    xsmall: (
+        max-width: 320px,
+    ),
+    small: (
+        max-width: 425px,
+    ),
+    medium: (
+        max-width: 768px,
+    ),
+    xmedium: (
+        max-width: 1024px,
+    ),
+    large: (
+        max-width: 1440px,
+    ),
+    xlarge: (
+        min-width: 1441px,
+    ),
+);
+
+@mixin mq($breakpoint) {
+    $size: map-get($breakpoints, $breakpoint);
+    @if ($size) {
+        @media #{$size} {
+            @content;
+        }
+    } @else {
+        @error '"#{$breakpoint}" - Does not recognize this resolution size';
+    }
+}
