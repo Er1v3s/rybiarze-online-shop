@@ -8,20 +8,16 @@
     background-color: rgba($color: #000000, $alpha: 0.4);
     border-bottom: 2px solid black;
     font-size: $base-font-size;
-    color: white;
-
-    @include media-min-width(xlarge) {
-        font-size: $large-font-size;
-    }
+    color: $defaul-text-color;
 
     &__container {
         max-width: 1920px;
         width: 100%;
         display: grid;
-        grid-template-columns: 3fr 1fr 1fr;
+        grid-template-columns: 3fr 2fr 1fr;
 
         @include media-min-width(medium) {
-            grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr 3fr;
+            grid-template-columns: 2fr 5fr 2fr;
         }
     }
 
@@ -47,10 +43,10 @@
     }
 
     &__burger {
-        order: 3;
         display: flex;
-        align-items: center;
+        order: 3;
         justify-content: center;
+        align-items: center;
         font-size: 2rem;
 
         @include media-min-width(medium) {
@@ -58,66 +54,60 @@
         }
     }
 
-    &__menu {
-        display: none;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        height: 100%;
-        @include subtelHover;
-
-        @include media-min-width(medium) {
+    &__menu,
+    &__options {
+        ul {
             display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100%;
+        }
+
+        li {
+            width: 20%;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: $defaul-text-color;
+            @include subtelHover;
         }
     }
 
-    &__option {
-        display: flex;
-        justify-content: space-evenly;
-        height: 100px;
-        line-height: 100px;
+    &__menu {
+        display: none;
+        @include media-min-width(medium) {
+            display: block;
+        }
 
-        div {
-            width: 25%;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            @include subtelHover;
+        a {
+            padding: 5%;
+        }
+    }
 
-            @include media-min-width(large) {
-                width: 50%;
+    &__options {
+        li {
+            width: 50% !important;
+        }
 
-                i {
-                    font-size: 2rem;
-                }
+        i {
+            display: block;
+            width: 100%;
+            height: $base-font-size * 1.5;
+            font-size: 1.5rem;
 
-                span {
-                    display: block !important;
-                }
-            }
-
-            i {
-                text-align: center;
+            &:hover {
                 font-size: 1.5rem;
-                transition: 0.3s;
-
-                &:hover {
-                    font-size: 2rem;
-                }
-
-                @include media-min-width(large) {
-                    &:hover {
-                        font-size: 1.5rem;
-                    }
-                }
             }
+        }
 
-            span {
+        span {
+            display: none;
+            width: 100%;
+            height: $base-font-size * 1.5;
+            @include media-min-width(large) {
                 display: block;
-                line-height: 30px;
-                text-align: center;
-                display: none;
             }
         }
     }
