@@ -20,8 +20,16 @@ burger_menu.addEventListener("click", () => {
   }
 });
 
+window.addEventListener("resize", () => {
+  if (innerWidth >= 768) {
+    mobile_menu.style.display = "none";
+  }
+});
+
 // Sticky navbar
 
+const nav_container: HTMLDivElement =
+  document.querySelector(".nav__container")!;
 const navbar_logo: HTMLDivElement = document.querySelector(".nav__logo")!;
 const nav_options_i: NodeListOf<HTMLElement> = document.querySelectorAll(
   ".nav__options ul li a i"
@@ -50,6 +58,18 @@ window.addEventListener("scroll", () => {
       element.removeAttribute("class");
     });
   }
+
+  window.addEventListener("resize", () => {
+    if (innerWidth < 280) {
+      navbar_logo.style.display = "none";
+      nav_container.style.height = "100px";
+      nav_container.style.gridTemplateColumns = "1fr 1fr";
+    } else {
+      navbar_logo.style.display = "block";
+      nav_container.style.height = "0";
+      nav_container.style.gridTemplateColumns = "3fr 2fr 1fr";
+    }
+  });
 });
 
 // Nabvar position
@@ -59,7 +79,7 @@ const video: HTMLVideoElement = document.querySelector("video")!;
 
 document.addEventListener("DOMContentLoaded", () => {
   if (window.innerWidth < 1024) {
-    video.style.marginTop = "100px";
+    video.style.paddingTop = "100px";
   }
 });
 
@@ -67,8 +87,6 @@ window.addEventListener("resize", () => {
   if (window.innerWidth > 1024) {
     video.style.marginTop = "0px";
   } else {
-    video.style.marginTop = "100px";
+    // video.style.marginTop = "100px";
   }
-
-  console.log(navbar);
 });
