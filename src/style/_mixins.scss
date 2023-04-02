@@ -1,0 +1,8 @@
+@mixin subtelHover {
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        font-size: 1rem;
+    }
+}
