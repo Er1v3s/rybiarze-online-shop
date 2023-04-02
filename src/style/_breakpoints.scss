@@ -1,0 +1,19 @@
+$min-widths: (
+    xsmall: 320px,
+    small: 425px,
+    medium: 768px,
+    xmedium: 1024px,
+    large: 1440px,
+    xlarge: 1920px,
+);
+
+@function min-width-for($width-name) {
+    $width: map-get($min-widths, $width-name);
+    @return "(min-width: #{$width})";
+}
+
+@mixin media-min-width($min-breakpoint-name) {
+    @media #{min-width-for($min-breakpoint-name)} {
+        @content;
+    }
+}
