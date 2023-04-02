@@ -14,13 +14,46 @@ video {
     margin: 0 auto;
     padding: 5px;
     padding-top: 105px;
-    cursor: pointer;
 
-    div:hover {
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        background: hsla(0, 0%, 12%, 0.5);
+        backdrop-filter: blur(10px);
+        transition: 0.5s;
+        color: $defaul-text-color;
+        text-align: center;
+
+        span {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 10%;
+            font-size: $small-font-size;
+
+            @include media-min-width(large) {
+                font-size: $large-font-size;
+            }
+        }
+    }
+
+    div {
+        position: relative;
+        transition: 0.3s;
         cursor: pointer;
+
+        &:hover .overlay {
+            opacity: 1;
+        }
     }
 
     img {
+        position: relative;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -63,7 +96,7 @@ video {
 
     @include media-min-width(small) {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 25vw);
+        grid-template-rows: repeat(4, 25vw);
 
         &__baner-1 {
             grid-column-start: 1;
