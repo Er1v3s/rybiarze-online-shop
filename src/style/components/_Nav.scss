@@ -17,11 +17,6 @@
         @include media-min-width(medium) {
             grid-template-columns: 2fr 5fr 2fr;
         }
-
-        &--smallScreen {
-            height: 100px;
-            grid-template-columns: 2fr 1fr;
-        }
     }
 
     &__logo {
