@@ -1,64 +1,74 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Mobile menu
 
-  const burger_menu: HTMLDivElement = document.querySelector(".nav__burger")!;
-  const mobile_menu: HTMLDivElement =
+  const burgerMenuElement: HTMLDivElement =
+    document.querySelector(".nav__burger")!;
+  const mobileMenuElement: HTMLDivElement =
     document.querySelector(".nav__mobile-menu")!;
 
-  mobile_menu.addEventListener("mouseover", () => {
-    mobile_menu.style.display = "block";
+  mobileMenuElement.addEventListener("mouseover", () => {
+    mobileMenuElement.style.display = "block";
   });
 
-  mobile_menu.addEventListener("mouseout", () => {
-    mobile_menu.style.display = "none";
+  mobileMenuElement.addEventListener("mouseout", () => {
+    mobileMenuElement.style.display = "none";
   });
 
-  burger_menu.addEventListener("click", () => {
-    if (mobile_menu.style.display !== "block") {
-      mobile_menu.style.display = "block";
+  burgerMenuElement.addEventListener("click", () => {
+    if (mobileMenuElement.style.display !== "block") {
+      mobileMenuElement.style.display = "block";
     } else {
-      mobile_menu.style.display = "none";
+      mobileMenuElement.style.display = "none";
     }
   });
 
   window.addEventListener("resize", () => {
-    if (innerWidth >= 768) {
-      mobile_menu.style.display = "none";
+    if (window.innerWidth >= 768) {
+      mobileMenuElement.style.display = "none";
     }
   });
 
   // Sticky navbar
 
-  const navbar_logo: HTMLDivElement = document.querySelector(".nav__logo")!;
-  const nav_options_i: NodeListOf<HTMLElement> = document.querySelectorAll(
-    ".nav__options ul li a i"
-  )!;
-  const nav_options_span: NodeListOf<HTMLSpanElement> =
-    document.querySelectorAll(".nav__options ul li a span")!;
-
   window.addEventListener("scroll", () => {
-    if (scrollY > 167) {
-      navbar_logo.setAttribute("class", "nav__logo--afterScroll");
-
-      nav_options_i.forEach((element) => {
-        element.classList.add("afterScroll");
-      });
-      nav_options_span.forEach((element) => {
-        element.setAttribute("class", "afterScroll");
-      });
-
-      mobile_menu.style.marginTop = "50px";
+    if (window.scrollY > 167) {
+      changeNavSize();
     } else {
-      navbar_logo.setAttribute("class", "nav__logo");
-
-      nav_options_i.forEach((element) => {
-        element.classList.remove("afterScroll");
-      });
-      nav_options_span.forEach((element) => {
-        element.removeAttribute("class");
-      });
-
-      mobile_menu.style.marginTop = "100px";
+      returnToPrimarySize();
     }
   });
+
+  const navLogoElement: HTMLDivElement = document.querySelector(".nav__logo")!;
+  const navIconElement: NodeListOf<HTMLElement> = document.querySelectorAll(
+    ".nav__options ul li a i"
+  )!;
+  const navSpanElement: NodeListOf<HTMLSpanElement> = document.querySelectorAll(
+    ".nav__options ul li a span"
+  )!;
+
+  const changeNavSize = (): void => {
+    navLogoElement.setAttribute("class", "nav__logo--afterScroll");
+
+    navIconElement.forEach((element: HTMLElement) => {
+      element.classList.add("afterScroll");
+    });
+    navSpanElement.forEach((element: HTMLSpanElement) => {
+      element.setAttribute("class", "afterScroll");
+    });
+
+    mobileMenuElement.style.marginTop = "50px";
+  };
+
+  const returnToPrimarySize = (): void => {
+    navLogoElement.setAttribute("class", "nav__logo");
+
+    navIconElement.forEach((element: HTMLElement) => {
+      element.classList.remove("afterScroll");
+    });
+    navSpanElement.forEach((element: HTMLSpanElement) => {
+      element.removeAttribute("class");
+    });
+
+    mobileMenuElement.style.marginTop = "100px";
+  };
 });

@@ -1,10 +1,9 @@
 // Overlay
 
-const header_images: NodeListOf<HTMLDivElement> = document.querySelectorAll(
-  ".commercial-baner div"
-)!;
+const headerImagesElements: NodeListOf<HTMLDivElement> =
+  document.querySelectorAll(".commercial-baner div")!;
 
-const text_content: Array<string> = [
+const textContentArray: Array<string> = [
   "Najlepsze na świecie wędki, wyciągniesz nimi wszystko, nawet utopionego opla",
   "Kołowrotki - można nimi kręcić...",
   "Zanęta tak dobra, że sam byś ją zjadł (ale lepiej nie jedz)",
@@ -12,16 +11,18 @@ const text_content: Array<string> = [
   "Prawdziwi mężczyźni używają sygnalizatorów, ale spławiki w naszym sklepie też są",
 ];
 
-header_images.forEach((element, index) => {
-  const header_image_overlay: HTMLDivElement = document.createElement("div");
-  header_image_overlay.setAttribute("class", "overlay");
+headerImagesElements.forEach((element: HTMLDivElement, index: number) => {
+  const headerImageOverlayElement: HTMLDivElement =
+    document.createElement("div");
+  headerImageOverlayElement.setAttribute("class", "overlay");
 
-  const overlay_text: HTMLSpanElement = document.createElement("span");
-  overlay_text.innerText = text_content[index];
+  const overlayTextFieldElement: HTMLSpanElement =
+    document.createElement("span");
+  overlayTextFieldElement.innerText = textContentArray[index];
 
-  header_image_overlay.appendChild(overlay_text);
+  headerImageOverlayElement.appendChild(overlayTextFieldElement);
 
-  element.appendChild(header_image_overlay);
+  element.appendChild(headerImageOverlayElement);
 });
 
 // Pause video when is not visible
