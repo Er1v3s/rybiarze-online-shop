@@ -3,12 +3,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("button.scroll-btn")!;
   const headerElement = document.querySelector("header")!;
 
-  scrollBtnElement.addEventListener("click", () => {
+  setTimeout(() => {
     scrollBtnElement.style.transition = "1s ease-out";
+  }, 1000);
+
+  scrollBtnElement.addEventListener("click", () => {
     if (window.scrollY <= headerElement.offsetHeight - 100) {
       scrollDown();
     } else {
       scrollUp();
+    }
+  });
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY <= headerElement.offsetHeight - 100) {
+      scrollBtnElement.style.transform = "rotateX(0deg) translateX(-50%)";
+    } else {
+      scrollBtnElement.style.transform = "rotateX(540deg) translateX(-50%)";
     }
   });
 

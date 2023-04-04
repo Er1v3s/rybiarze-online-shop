@@ -6,37 +6,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenuElement: HTMLDivElement =
     document.querySelector(".nav__mobile-menu")!;
 
-  mobileMenuElement.addEventListener("mouseover", () => {
-    mobileMenuElement.style.display = "block";
-  });
-
-  mobileMenuElement.addEventListener("mouseout", () => {
-    mobileMenuElement.style.display = "none";
-  });
-
   burgerMenuElement.addEventListener("click", () => {
-    if (mobileMenuElement.style.display !== "block") {
-      mobileMenuElement.style.display = "block";
-    } else {
-      mobileMenuElement.style.display = "none";
+    mobileMenuElement.classList.toggle("nav__mobile-menu--show");
+  });
+
+  document.addEventListener("click", (e: MouseEvent | TouchEvent) => {
+    const target = e.target;
+    if (
+      target instanceof Node &&
+      !mobileMenuElement.contains(target) &&
+      !burgerMenuElement.contains(target)
+    ) {
+      mobileMenuElement.classList.remove("nav__mobile-menu--show");
     }
   });
 
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 768) {
-      mobileMenuElement.style.display = "none";
+      mobileMenuElement.classList.remove("nav__mobile-menu--show");
     }
   });
 
   // Sticky navbar
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 167) {
-      changeNavSize();
-    } else {
-      returnToPrimarySize();
-    }
-  });
 
   const navLogoElement: HTMLDivElement = document.querySelector(".nav__logo")!;
   const navIconElement: NodeListOf<HTMLElement> = document.querySelectorAll(
@@ -45,6 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const navSpanElement: NodeListOf<HTMLSpanElement> = document.querySelectorAll(
     ".nav__options ul li a span"
   )!;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 167) {
+      changeNavSize();
+    } else {
+      returnToPrimarySize();
+    }
+  });
 
   const changeNavSize = (): void => {
     navLogoElement.setAttribute("class", "nav__logo--afterScroll");
