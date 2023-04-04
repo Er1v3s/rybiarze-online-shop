@@ -60,7 +60,7 @@
         order: 3;
         justify-content: center;
         align-items: center;
-        font-size: 2rem;
+        font-size: $xlarge-font-size;
         cursor: pointer;
 
         @include media-min-width(medium) {
@@ -112,17 +112,17 @@
         i {
             display: block;
             width: 100%;
-            height: $base-font-size * 1.5;
-            font-size: $base-font-size * 1.5;
+            height: $large-font-size;
+            font-size: $large-font-size;
             transition: 0.3s;
 
             &:hover {
-                font-size: $base-font-size * 1.3;
+                font-size: $base-font-size;
             }
 
             @include media-min-width(large) {
                 &:hover {
-                    font-size: $base-font-size * 1.5;
+                    font-size: $base-font-size;
                 }
             }
         }
@@ -130,14 +130,14 @@
         span {
             display: none;
             width: 100%;
-            height: $base-font-size * 1.5;
+            height: $large-font-size;
             transition: 0.3s;
             @include media-min-width(large) {
                 display: block;
             }
 
             &:hover {
-                font-size: $base-font-size * 0.9;
+                font-size: $medium-font-size;
             }
         }
 
