@@ -11,7 +11,6 @@
         padding: 5%;
         margin-top: 100px;
         background-color: rgba($color: $defaul-elements-color, $alpha: 0.5);
-        font-size: 4vw;
         color: $defaul-text-color;
 
         @include media-min-width(medium) {
@@ -25,6 +24,19 @@
 
         @include media-min-width(large) {
             padding: 15%;
+        }
+
+        h1 {
+            font-size: 4vw;
+            font-weight: 100;
+
+            @include media-min-width(medium) {
+                font-size: $xlarge-font-size;
+            }
+
+            @include media-min-width(large) {
+                font-size: $giga-font-size;
+            }
         }
     }
 

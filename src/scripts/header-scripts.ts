@@ -57,8 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Keybaord write effect
 
-  const textField: HTMLDivElement =
-    document.querySelector(".video-text-field")!;
+  const textField: HTMLDivElement = document.querySelector(
+    ".video-text-field h1"
+  )!;
 
   if (textField) {
     const text: string =
