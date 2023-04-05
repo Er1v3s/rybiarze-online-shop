@@ -3,14 +3,16 @@
 @import "./variables";
 @import "./breakpoints";
 @import "./base";
+@import "./animations";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap");
 
 // Components
 @import "./components/Nav";
+@import "./components/Nav-burger-menu";
 
 // Home
-@import "./Header";
-@import "./Main";
+@import "./home/Header";
+@import "./home/Main";
 
 // Shop
 @import "./shop/Header";
