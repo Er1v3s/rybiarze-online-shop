@@ -56,16 +56,7 @@
     }
 
     &__burger {
-        display: flex;
         order: 3;
-        justify-content: center;
-        align-items: center;
-        font-size: $xlarge-font-size;
-        cursor: pointer;
-
-        @include media-min-width(medium) {
-            display: none;
-        }
     }
 
     &__menu,
@@ -107,22 +98,34 @@
     &__options {
         li {
             width: 50% !important;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         i {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             width: 100%;
-            height: $large-font-size;
             font-size: $large-font-size;
             transition: 0.3s;
 
             &:hover {
-                font-size: $base-font-size;
+                font-size: $large-font-size * 1.1;
+            }
+
+            @include media-min-width(small) {
+                font-size: $xlarge-font-size;
+                &:hover {
+                    font-size: $large-font-size;
+                }
             }
 
             @include media-min-width(large) {
                 &:hover {
-                    font-size: $base-font-size;
+                    font-size: $xlarge-font-size;
                 }
             }
         }
@@ -137,7 +140,7 @@
             }
 
             &:hover {
-                font-size: $medium-font-size;
+                @include subtelHover;
             }
         }
 
@@ -146,45 +149,5 @@
             font-size: $base-font-size;
             height: $base-font-size;
         }
-    }
-
-    // MOBILE
-
-    &__mobile-menu {
-        position: absolute;
-        width: 100%;
-        display: none;
-        margin-top: 100px;
-
-        ul {
-            display: flex;
-            flex-direction: column;
-
-            li {
-                width: 100%;
-                height: 50px;
-                text-align: center;
-                line-height: 50px;
-                background-color: rgba($color: #000000, $alpha: 0.9);
-                cursor: pointer;
-
-                &:nth-child(2n) {
-                    background-color: rgba($color: #000000, $alpha: 0.8);
-                }
-
-                &:hover {
-                    background-color: rgba($color: #000000, $alpha: 0.85);
-                }
-
-                a {
-                    text-decoration: none;
-                    color: $defaul-text-color;
-                }
-            }
-        }
-    }
-
-    &__mobile-menu--show {
-        display: block;
     }
 }

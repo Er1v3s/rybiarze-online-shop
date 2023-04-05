@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   burgerMenuElement.addEventListener("click", () => {
     mobileMenuElement.classList.toggle("nav__mobile-menu--show");
+    burgerMenuElement.classList.toggle("active");
+    burgerMenuElement.classList.toggle("not-active");
   });
 
   document.addEventListener("click", (e: MouseEvent | TouchEvent) => {
@@ -18,14 +20,31 @@ document.addEventListener("DOMContentLoaded", () => {
       !burgerMenuElement.contains(target)
     ) {
       mobileMenuElement.classList.remove("nav__mobile-menu--show");
+
+      transformBurger();
     }
   });
 
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 768) {
       mobileMenuElement.classList.remove("nav__mobile-menu--show");
+
+      transformBurger();
     }
   });
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 167) {
+      burgerMenuElement.classList.add("active-after-scroll");
+    } else {
+      burgerMenuElement.classList.remove("active-after-scroll");
+    }
+  });
+
+  const transformBurger = (): void => {
+    burgerMenuElement.classList.remove("active");
+    burgerMenuElement.classList.add("not-active");
+  };
 
   // Sticky navbar
 
