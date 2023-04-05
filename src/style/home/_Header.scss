@@ -1,0 +1,62 @@
+.page-header {
+    position: relative;
+    height: 100%;
+
+    .video-text-field {
+        position: absolute;
+        top: 0;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        padding: 5%;
+        margin-top: 100px;
+        background-color: rgba($color: $defaul-elements-color, $alpha: 0.5);
+        color: $defaul-text-color;
+
+        @include media-min-width(medium) {
+            font-size: $large-font-size;
+            padding: 10%;
+        }
+
+        @include media-min-width(xmedium) {
+            font-size: $large-font-size * 1.5;
+        }
+
+        @include media-min-width(large) {
+            padding: 15%;
+        }
+
+        h1 {
+            font-size: 4vw;
+            font-weight: 100;
+
+            @include media-min-width(medium) {
+                font-size: $xlarge-font-size;
+            }
+
+            @include media-min-width(large) {
+                font-size: $giga-font-size;
+            }
+        }
+    }
+
+    .scroll-btn {
+        display: none;
+        position: fixed;
+        bottom: 5%;
+        left: 50%;
+        transform: rotateX(0deg) translateX(-50%);
+        width: 75px;
+        height: 75px;
+        border: none;
+        border-radius: 50%;
+        background-color: $defaul-elements-color;
+        font-size: $large-font-size * 1.5;
+        color: $defaul-text-color;
+        cursor: pointer;
+
+        @include media-min-width(xmedium) {
+            display: block;
+        }
+    }
+}
