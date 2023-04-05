@@ -38,6 +38,7 @@
             overflow: hidden;
             transition: 0.3s;
             cursor: pointer;
+
             img {
                 transition: 0.3s;
                 height: 60px;
@@ -71,17 +72,18 @@
         li {
             width: 20%;
             text-align: center;
+            @include subtelHover;
         }
 
         a {
             text-decoration: none;
             color: $defaul-text-color;
-            @include subtelHover;
         }
     }
 
     &__menu {
         display: none;
+
         @include media-min-width(medium) {
             display: block;
         }
@@ -110,23 +112,10 @@
             justify-content: center;
             width: 100%;
             font-size: $large-font-size;
-            transition: 0.3s;
-
-            &:hover {
-                font-size: $large-font-size * 1.1;
-            }
+            transition: transform 0.3s;
 
             @include media-min-width(small) {
                 font-size: $xlarge-font-size;
-                &:hover {
-                    font-size: $large-font-size;
-                }
-            }
-
-            @include media-min-width(large) {
-                &:hover {
-                    font-size: $xlarge-font-size;
-                }
             }
         }
 
@@ -135,16 +124,13 @@
             width: 100%;
             height: $large-font-size;
             transition: 0.3s;
+
             @include media-min-width(large) {
                 display: block;
             }
-
-            &:hover {
-                @include subtelHover;
-            }
         }
 
-        .afterScroll {
+        &.afterScroll {
             transition: 0.3s;
             font-size: $base-font-size;
             height: $base-font-size;
