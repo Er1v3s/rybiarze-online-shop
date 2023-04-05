@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const scrollBtnElement: HTMLButtonElement =
-    document.querySelector("button.scroll-btn")!;
+    document.querySelector(".scroll-btn")!;
   const headerElement = document.querySelector("header")!;
 
   setTimeout(() => {

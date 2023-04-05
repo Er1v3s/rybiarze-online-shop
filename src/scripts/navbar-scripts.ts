@@ -14,14 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("click", (e: MouseEvent | TouchEvent) => {
     const target = e.target;
-    if (
-      target instanceof Node &&
-      !mobileMenuElement.contains(target) &&
-      !burgerMenuElement.contains(target)
-    ) {
-      mobileMenuElement.classList.remove("nav__mobile-menu--show");
-
-      transformBurger();
+    if (mobileMenuElement.classList.contains("nav__mobile-menu--show")) {
+      if (
+        target instanceof Node &&
+        !mobileMenuElement.contains(target) &&
+        !burgerMenuElement.contains(target)
+      ) {
+        mobileMenuElement.classList.remove("nav__mobile-menu--show");
+        transformBurger();
+      }
     }
   });
 
