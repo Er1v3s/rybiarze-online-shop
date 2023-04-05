@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".nav__mobile-menu")!;
 
   burgerMenuElement.addEventListener("click", () => {
-    mobileMenuElement.classList.toggle("nav__mobile-menu--show");
+    showMobileMenu();
+
     burgerMenuElement.classList.toggle("active");
     burgerMenuElement.classList.toggle("not-active");
   });
@@ -20,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
         !mobileMenuElement.contains(target) &&
         !burgerMenuElement.contains(target)
       ) {
-        mobileMenuElement.classList.remove("nav__mobile-menu--show");
         transformBurger();
+        showMobileMenu();
       }
     }
   });
@@ -41,6 +42,19 @@ document.addEventListener("DOMContentLoaded", () => {
       burgerMenuElement.classList.remove("active-after-scroll");
     }
   });
+
+  const showMobileMenu = (): void => {
+    if (mobileMenuElement.classList.contains("nav__mobile-menu--show")) {
+      mobileMenuElement.style.animation = "slide-out 0.7s ease forwards";
+      setTimeout(() => {
+        mobileMenuElement.classList.remove("nav__mobile-menu--show");
+      }, 700);
+    } else {
+      mobileMenuElement.style.animation = "slide-in 0.7s ease forwards";
+
+      mobileMenuElement.classList.add("nav__mobile-menu--show");
+    }
+  };
 
   const transformBurger = (): void => {
     burgerMenuElement.classList.remove("active");
@@ -66,13 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const changeNavSize = (): void => {
-    navLogoElement.setAttribute("class", "nav__logo--afterScroll");
+    navLogoElement.setAttribute("class", "nav__logo--after-scroll");
 
     navIconElement.forEach((element: HTMLElement) => {
-      element.classList.add("afterScroll");
+      element.classList.add("after-scroll");
     });
     navSpanElement.forEach((element: HTMLSpanElement) => {
-      element.setAttribute("class", "afterScroll");
+      element.setAttribute("class", "after-scroll");
     });
 
     mobileMenuElement.style.marginTop = "50px";
@@ -82,8 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
     navLogoElement.setAttribute("class", "nav__logo");
 
     navIconElement.forEach((element: HTMLElement) => {
-      element.classList.remove("afterScroll");
+      element.classList.remove("after-scroll");
     });
+
     navSpanElement.forEach((element: HTMLSpanElement) => {
       element.removeAttribute("class");
     });

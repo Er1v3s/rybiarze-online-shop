@@ -4,7 +4,7 @@
     justify-content: center;
     width: 100%;
     z-index: 999;
-    background-color: $defaul-elements-color;
+    background-color: rgba($color: $defaul-elements-color, $alpha: 0.95);
     font-size: $base-font-size;
     color: $defaul-text-color;
 
@@ -32,7 +32,7 @@
             height: 100px;
         }
 
-        &--afterScroll {
+        &--after-scroll {
             width: 150px;
             height: 50px;
             overflow: hidden;
@@ -117,23 +117,29 @@
             @include media-min-width(small) {
                 font-size: $xlarge-font-size;
             }
+
+            @include media-min-width(medium) {
+                font-size: $large-font-size;
+            }
+
+            &.after-scroll {
+                font-size: $large-font-size;
+            }
         }
 
         span {
             display: none;
             width: 100%;
             height: $large-font-size;
-            transition: 0.3s;
+            transition: transform 0.3s;
 
             @include media-min-width(large) {
                 display: block;
             }
-        }
 
-        &.afterScroll {
-            transition: 0.3s;
-            font-size: $base-font-size;
-            height: $base-font-size;
+            &.after-scroll {
+                display: none;
+            }
         }
     }
 }
