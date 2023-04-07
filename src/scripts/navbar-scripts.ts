@@ -25,14 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     burgerMenuElement.classList.add("not-active");
   };
 
-  burgerMenuElement.addEventListener("click", () => {
-    let buttonClickDeley: void | string = showMobileMenu();
-    buttonClickDeley = "XD";
-    console.log(buttonClickDeley);
-    setTimeout(() => {
-      buttonClickDeley = showMobileMenu();
-    }, 2000);
-  });
+  burgerMenuElement.addEventListener("click", showMobileMenu);
 
   document.addEventListener("click", (e: MouseEvent | TouchEvent) => {
     const target = e.target;
