@@ -6,11 +6,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenuElement: HTMLDivElement =
     document.querySelector(".nav__mobile-menu")!;
 
-  burgerMenuElement.addEventListener("click", () => {
-    showMobileMenu();
+  const showMobileMenu = (): void => {
+    if (mobileMenuElement.classList.contains("nav__mobile-menu--show")) {
+      mobileMenuElement.style.animation = "slide-out 0.7s ease forwards";
+      setTimeout(() => {
+        mobileMenuElement.classList.remove("nav__mobile-menu--show");
+      }, 700);
+    } else {
+      mobileMenuElement.style.animation = "slide-in 0.7s ease forwards";
+      mobileMenuElement.classList.add("nav__mobile-menu--show");
+    }
 
-    burgerMenuElement.classList.toggle("active");
-    burgerMenuElement.classList.toggle("not-active");
+    transformBurger();
+  };
+
+  const transformBurger = (): void => {
+    burgerMenuElement.classList.remove("active");
+    burgerMenuElement.classList.add("not-active");
+  };
+
+  burgerMenuElement.addEventListener("click", () => {
+    let buttonClickDeley: void | string = showMobileMenu();
+    buttonClickDeley = "XD";
+    console.log(buttonClickDeley);
+    setTimeout(() => {
+      buttonClickDeley = showMobileMenu();
+    }, 2000);
   });
 
   document.addEventListener("click", (e: MouseEvent | TouchEvent) => {
@@ -21,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
         !mobileMenuElement.contains(target) &&
         !burgerMenuElement.contains(target)
       ) {
-        transformBurger();
         showMobileMenu();
       }
     }
@@ -42,24 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
       burgerMenuElement.classList.remove("active-after-scroll");
     }
   });
-
-  const showMobileMenu = (): void => {
-    if (mobileMenuElement.classList.contains("nav__mobile-menu--show")) {
-      mobileMenuElement.style.animation = "slide-out 0.7s ease forwards";
-      setTimeout(() => {
-        mobileMenuElement.classList.remove("nav__mobile-menu--show");
-      }, 700);
-    } else {
-      mobileMenuElement.style.animation = "slide-in 0.7s ease forwards";
-
-      mobileMenuElement.classList.add("nav__mobile-menu--show");
-    }
-  };
-
-  const transformBurger = (): void => {
-    burgerMenuElement.classList.remove("active");
-    burgerMenuElement.classList.add("not-active");
-  };
 
   // Sticky navbar
 
