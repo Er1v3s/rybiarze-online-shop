@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const scrollBtnElement: HTMLButtonElement =
-    document.querySelector("button.scroll-btn")!;
+    document.querySelector(".scroll-btn")!;
   const headerElement = document.querySelector("header")!;
 
   setTimeout(() => {
@@ -18,8 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
     if (window.scrollY <= headerElement.offsetHeight - 100) {
       scrollBtnElement.style.transform = "rotateX(0deg) translateX(-50%)";
+      scrollBtnElement.style.border = "none";
     } else {
       scrollBtnElement.style.transform = "rotateX(540deg) translateX(-50%)";
+      scrollBtnElement.style.border = "1px solid white";
     }
   });
 
