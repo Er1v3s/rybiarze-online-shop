@@ -4,7 +4,7 @@
     justify-content: center;
     width: 100%;
     z-index: 999;
-    background-color: $defaul-elements-color;
+    background-color: rgba($color: $defaul-elements-color, $alpha: 0.95);
     font-size: $base-font-size;
     color: $defaul-text-color;
 
@@ -32,12 +32,13 @@
             height: 100px;
         }
 
-        &--afterScroll {
+        &--after-scroll {
             width: 150px;
             height: 50px;
             overflow: hidden;
             transition: 0.3s;
             cursor: pointer;
+
             img {
                 transition: 0.3s;
                 height: 60px;
@@ -71,17 +72,18 @@
         li {
             width: 20%;
             text-align: center;
+            @include subtelHover;
         }
 
         a {
             text-decoration: none;
             color: $defaul-text-color;
-            @include subtelHover;
         }
     }
 
     &__menu {
         display: none;
+
         @include media-min-width(medium) {
             display: block;
         }
@@ -110,23 +112,18 @@
             justify-content: center;
             width: 100%;
             font-size: $large-font-size;
-            transition: 0.3s;
-
-            &:hover {
-                font-size: $large-font-size * 1.1;
-            }
+            transition: transform 0.3s;
 
             @include media-min-width(small) {
                 font-size: $xlarge-font-size;
-                &:hover {
-                    font-size: $large-font-size;
-                }
             }
 
-            @include media-min-width(large) {
-                &:hover {
-                    font-size: $xlarge-font-size;
-                }
+            @include media-min-width(medium) {
+                font-size: $large-font-size;
+            }
+
+            &.after-scroll {
+                font-size: $large-font-size;
             }
         }
 
@@ -134,20 +131,15 @@
             display: none;
             width: 100%;
             height: $large-font-size;
-            transition: 0.3s;
+            transition: transform 0.3s;
+
             @include media-min-width(large) {
                 display: block;
             }
 
-            &:hover {
-                @include subtelHover;
+            &.after-scroll {
+                display: none;
             }
-        }
-
-        .afterScroll {
-            transition: 0.3s;
-            font-size: $base-font-size;
-            height: $base-font-size;
         }
     }
 }

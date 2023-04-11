@@ -1,0 +1,19 @@
+.scroll-btn {
+    display: none;
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    transform: rotateX(0deg) translateX(-50%);
+    width: 75px;
+    height: 75px;
+    border: none;
+    border-radius: 50%;
+    background-color: $defaul-elements-color;
+    font-size: $large-font-size * 1.5;
+    color: $defaul-text-color;
+    cursor: pointer;
+
+    @include media-min-width(xmedium) {
+        display: block;
+    }
+}

@@ -94,6 +94,7 @@
         width: 100%;
         display: none;
         margin-top: 100px;
+        z-index: -1;
 
         ul {
             display: flex;
@@ -104,15 +105,12 @@
                 height: 50px;
                 text-align: center;
                 line-height: 50px;
-                background-color: rgba($color: #000000, $alpha: 0.9);
+                background-color: rgba($color: #000000, $alpha: 0.95);
                 cursor: pointer;
+                @include subtelHover;
 
                 &:nth-child(2n) {
-                    background-color: rgba($color: #000000, $alpha: 0.8);
-                }
-
-                &:hover {
-                    background-color: rgba($color: #000000, $alpha: 0.85);
+                    background-color: rgba($color: $defaul-elements-color, $alpha: 0.95);
                 }
 
                 a {

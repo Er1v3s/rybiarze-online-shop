@@ -3,6 +3,17 @@
     transition: 0.3s;
 
     &:hover {
-        font-size: 1rem;
+        transform: scale(1.1);
     }
+}
+
+@mixin formInput {
+    width: 100%;
+    border: 2px solid $defaul-text-color;
+    border-radius: 5px;
+    background-color: $defaul-elements-color;
+    color: $defaul-text-color;
+    font-size: $base-font-size;
+    padding: $margin-mobile;
+    margin: $margin-mobile;
 }
