@@ -28,16 +28,16 @@
     &__interactive {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 0.75fr 1fr 3fr 1.25fr 2.5fr;
+        grid-template-rows: 0.5fr 0.5fr 2.25fr 1fr 2fr;
 
         @include media-min-width(small) {
             grid-template-columns: 2fr 1fr;
-            grid-template-rows: 0.75fr 2fr 0.75fr 1.25fr;
+            grid-template-rows: 0.5fr 2fr 0.75fr 1fr;
         }
 
         @include media-min-width(medium) {
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 2fr 2fr;
+            grid-template-rows: 0.5fr 2fr 2fr;
         }
 
         a {
@@ -47,7 +47,11 @@
         }
 
         & > * {
-            margin: $margin-desktop;
+            margin: $margin-mobile;
+
+            @include media-min-width(medium) {
+                margin: $margin-desktop;
+            }
 
             @include media-min-width(xmedium) {
                 margin: $tags-separator-mobile;
@@ -58,12 +62,12 @@
     &__social-media {
         grid-area: 1/1/2/2;
         text-align: center;
-        margin-top: auto;
-        margin-bottom: auto;
 
         @include media-min-width(small) {
             grid-area: 1/2/2/3;
             justify-content: space-between;
+            margin-top: auto;
+            margin-bottom: auto;
         }
 
         @include media-min-width(medium) {
@@ -90,7 +94,8 @@
 
         @include media-min-width(medium) {
             grid-area: 1/1/2/2;
-            justify-content: space-between;
+            justify-content: center;
+            margin: 0;
         }
 
         i {
@@ -155,7 +160,7 @@
         grid-area: 5/1/6/2;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.5fr 0.75fr 0.75fr 1.5fr;
+        grid-template-rows: 0.5fr 0.5fr 0.5fr 1.5fr;
         font-size: $large-font-size;
 
         @include media-min-width(small) {
@@ -171,6 +176,10 @@
 
         h4 {
             grid-area: 1/1/2/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
             text-align: center;
         }
 
@@ -220,7 +229,7 @@
 
     &__info {
         width: 100%;
-        padding: 1%;
+        margin: $margin-mobile 0;
         text-align: center;
     }
 
