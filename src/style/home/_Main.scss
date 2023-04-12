@@ -1,6 +1,8 @@
 .main {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     &__header {
         max-width: 1024px;
@@ -17,8 +19,115 @@
         font-weight: 900;
         color: $defaul-text-color-black;
 
+        @include media-min-width(small) {
+            font-size: 4vw;
+        }
+
+        @include media-min-width(medium) {
+            font-size: 3vw;
+        }
+
         @include media-min-width(xmedium) {
             font-size: $xlarge-font-size;
+        }
+    }
+
+    &__gallery {
+        max-width: 1920px;
+        &-article {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            @include media-min-width(small) {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            &:nth-child(2) {
+                p {
+                    text-align: center;
+
+                    @include media-min-width(small) {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        &-text {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            &:nth-child(1n) {
+                order: 1;
+
+                @include media-min-width(small) {
+                    order: 0;
+                }
+            }
+
+            @include media-min-width(small) {
+                width: 70%;
+            }
+
+            p {
+                font-size: $large-font-size;
+                font-weight: 100;
+                padding: $margin-mobile;
+                font-size: 5vw;
+                text-align: center;
+
+                @include media-min-width(small) {
+                    font-size: 3vw;
+                    text-align: left;
+                    margin-left: $margin-desktop;
+                }
+
+                @include media-min-width(medium) {
+                    font-size: 2.5vw;
+                }
+
+                @include media-min-width(xmedium) {
+                    padding: $tags-separator-mobile;
+                    font-size: $large-font-size;
+                }
+            }
+        }
+
+        &-img {
+            width: 100%;
+            padding: $margin-mobile;
+
+            @include media-min-width(small) {
+                width: 90%;
+                padding-left: 0;
+                clip-path: polygon(25% 0, 100% 0, 100% 50%, 100% 100%, 25% 100%, 0 50%);
+                transition: 0.3s;
+
+                &:hover {
+                    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 25% 50%);
+                }
+            }
+
+            &:nth-child(1) {
+                width: 100%;
+                padding: $margin-mobile;
+
+                @include media-min-width(small) {
+                    width: 90%;
+                    padding-right: 0;
+                    clip-path: polygon(0 0, 100% 0, 75% 50%, 100% 100%, 0 100%, 0 50%);
+                    transition: 0.3s;
+
+                    &:hover {
+                        clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%, 0 50%);
+                    }
+                }
+            }
         }
     }
 }
