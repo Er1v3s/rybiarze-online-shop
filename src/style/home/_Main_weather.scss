@@ -1,0 +1,11 @@
+.main {
+    &__weather {
+        margin: $tags-separator-mobile;
+
+        @include media-min-width(xmedium) {
+            margin: $tags-separator-desktop;
+        }
+    }
+
+    
+}

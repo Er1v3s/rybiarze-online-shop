@@ -1,6 +1,12 @@
 .main {
     &__gallery {
         max-width: 1920px;
+        margin: $tags-separator-mobile 0;
+
+        @include media-min-width(xmedium) {
+            margin: $tags-separator-desktop 0;
+        }
+
         &-article {
             position: relative;
             display: flex;
