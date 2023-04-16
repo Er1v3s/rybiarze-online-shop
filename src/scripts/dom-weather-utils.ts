@@ -1,3 +1,4 @@
+import { Calendar, Clock } from "./clock";
 import { APIResponse } from "./date-types";
 import { getPosition } from "./geolocationAPI";
 import { getWeather } from "./weatherAPI";
@@ -5,6 +6,8 @@ import { getWeather } from "./weatherAPI";
 document.addEventListener("DOMContentLoaded", () => {
   const mainSesctionWeatherElemet: HTMLElement =
     document.querySelector(".main__weather")!;
+
+  const dateElement: HTMLSpanElement = document.querySelector(".main__date")!;
 
   const timeElement: HTMLSpanElement = document.querySelector(".main__time")!;
 
@@ -41,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response: APIResponse = await getWeather;
       if (response.err == false) {
-        timeElement.innerText = String(response.time);
+        timeElement.innerText = String(Clock(timeElement));
+        timeElement.innerText = String(Calendar(dateElement));
         countryElement.innerText = response.country as string;
         cityElement.innerText = response.city as string;
         weatherTemperatureElement.innerText = String(response.temperature);

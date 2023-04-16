@@ -1,7 +1,6 @@
 export interface APIResponse {
   err?: boolean;
   errmessage?: string;
-  time?: string;
   city?: string;
   country?: string;
   temperature?: number;

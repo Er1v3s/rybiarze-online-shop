@@ -21,10 +21,8 @@ const getWeather = async (getPosition: Promise<[Number, Number]>) => {
     if (response.ok) {
       const data = await response.json();
       if (data.length != 0) {
-        const time: string = new Date().toLocaleString();
         APIresponse = {
           err: false,
-          time,
           city: data.name,
           country: data.sys.country,
           temperature: Math.floor(data.main.temp),
