@@ -13,7 +13,7 @@ const getWeather = async (getPosition: Promise<[Number, Number]>) => {
   } catch (err) {
     userPosition = [53.14292, 22.98815];
   } finally {
-    API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${userPosition[0]}&lon=${userPosition[1]}&appid=${API_KEY}`;
+    API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${userPosition[0]}&lon=${userPosition[1]}&appid=${API_KEY}&units=metric`;
   }
 
   try {
@@ -44,7 +44,7 @@ const getWeather = async (getPosition: Promise<[Number, Number]>) => {
         throw new Error("There's no available data for your searching");
       }
     } else {
-      throw new Error(`${response.status} ${response.statusText}`);
+      throw new Error(`Error ${response.status}`);
     }
   } catch (err: any) {
     APIresponse = {
@@ -55,7 +55,5 @@ const getWeather = async (getPosition: Promise<[Number, Number]>) => {
 
   return APIresponse;
 };
-
-getWeather(getPosition());
 
 export { getWeather };
