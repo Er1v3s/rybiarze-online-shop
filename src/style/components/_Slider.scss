@@ -27,28 +27,28 @@
         overflow: hidden;
         box-shadow: 0 0 10px rgb(0, 0, 0);
         border-radius: 30px;
-        width: 213px;
-        height: 140px;
+        width: $img-under-minimum-width;
+        height: $img-under-minimum-height;
         z-index: 2;
 
         @include media-min-width(xsmall) {
-            width: 304px;
-            height: 171px;
+            width: $img-xsmall-width;
+            height: $img-xsmall-height;
         }
 
         @include media-min-width(small) {
-            width: 404px;
-            height: 228px;
+            width: $img-small-width;
+            height: $img-small-height;
         }
 
         @include media-min-width(medium) {
-            width: 640px;
-            height: 360px;
+            width: $img-medium-width;
+            height: $img-medium-height;
         }
 
         @include media-min-width(xmedium) {
-            width: 854px;
-            height: 480px;
+            width: $img-xmedium-width;
+            height: $img-xmedium-height;
         }
     }
 
@@ -58,29 +58,29 @@
 
         img {
             max-width: none !important;
-            width: 213px;
-            height: 140px;
+            width: $img-under-minimum-width;
+            height: $img-under-minimum-height;
             object-fit: cover;
             font-size: 0;
 
             @include media-min-width(xsmall) {
-                width: 304px;
-                height: 171px;
+                width: $img-xsmall-width;
+                height: $img-xsmall-height;
             }
 
             @include media-min-width(small) {
-                width: 404px;
-                height: 228px;
+                width: $img-small-width;
+                height: $img-small-height;
             }
 
             @include media-min-width(medium) {
-                width: 640px;
-                height: 360px;
+                width: $img-medium-width;
+                height: $img-medium-height;
             }
 
             @include media-min-width(xmedium) {
-                width: 854px;
-                height: 480px;
+                width: $img-xmedium-width;
+                height: $img-xmedium-height;
             }
         }
     }
