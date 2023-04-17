@@ -39,15 +39,16 @@ const changeActiveCircle = (): void => {
   sliderBottomCirclesArray[slide - 1].style.backgroundColor = "rgba(31,31,31)";
 };
 
-sliderBottomCirclesArray.forEach((circle: HTMLDivElement, index: number) => {
-  circle.addEventListener("click", () => {
-    sliderGalleryElement.style.transform = `translateX(-${
-      index * sliderWidth
-    }px)`;
-    slide = index + 1;
-    changeActiveCircle();
-  });
-});
+let autoChangeSlide: NodeJS.Timeout = setInterval(() => {
+  slide < imglength ? nextSlide() : goToFirstSlide();
+}, 3000);
+
+const resetInterval = (): void => {
+  clearInterval(autoChangeSlide);
+  autoChangeSlide = setInterval(() => {
+    slide < imglength ? nextSlide() : goToFirstSlide();
+  }, 3000);
+};
 
 const nextSlide = (): void => {
   sliderGalleryElement.style.transform = `translateX(-${
@@ -76,17 +77,31 @@ const goToLastSlide = (): void => {
   sliderGalleryElement.style.transform = `translateX(-${
     (imglength - 1) * sliderWidth
   }px)`;
+  changeActiveCircle();
 };
 
+sliderBottomCirclesArray.forEach((circle: HTMLDivElement, index: number) => {
+  circle.addEventListener("click", () => {
+    sliderGalleryElement.style.transform = `translateX(-${
+      index * sliderWidth
+    }px)`;
+    slide = index + 1;
+    changeActiveCircle();
+  });
+});
+
 arrowRightElement.addEventListener("click", () => {
+  resetInterval();
   slide < imglength ? nextSlide() : goToFirstSlide();
 });
 
 arrowLeftElement.addEventListener("click", () => {
+  resetInterval();
   slide <= 1 ? goToLastSlide() : prevSlide();
 });
 
 window.addEventListener("keydown", (event: KeyboardEvent) => {
+  resetInterval();
   if (event.key === "ArrowRight") {
     slide < imglength ? nextSlide() : goToFirstSlide();
   } else if (event.key === "ArrowLeft") {
@@ -113,6 +128,7 @@ window.addEventListener("touchend", () => {
   if (touchStartX - touchEndX < -50) {
     slide <= 1 ? goToLastSlide() : prevSlide();
   }
+  resetInterval();
 });
 
 window.addEventListener("resize", () => {
@@ -121,7 +137,3 @@ window.addEventListener("resize", () => {
     slide * sliderWidth - sliderWidth
   }px)`;
 });
-
-setInterval(() => {
-  slide < imglength ? nextSlide() : goToFirstSlide();
-}, 5000);
