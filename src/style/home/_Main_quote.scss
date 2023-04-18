@@ -1,14 +1,32 @@
 .main {
     &__quote {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         min-height: 50vh;
+        max-width: 95vw;
         position: relative;
         display: block;
-        margin: $tags-separator-mobile;
+        margin: $tags-separator-mobile 0;
+
+        @include media-min-width(xsmall) {
+            height: $img-xsmall-height * 3.5;
+        }
+
+        @include media-min-width(small) {
+            max-width: 90vw;
+            margin: $tags-separator-mobile;
+            height: $img-small-height * 3;
+        }
+
+        @include media-min-width(medium) {
+            max-width: 768px;
+            height: $img-medium-height * 1.75;
+        }
 
         @include media-min-width(xmedium) {
             max-width: 1024px;
-            height: $img-xmedium-height * 1.52;
+            height: $img-medium-height * 2;
             margin: $tags-separator-desktop;
         }
 
@@ -18,10 +36,24 @@
         }
 
         div:nth-child(1) {
-            left: 10%;
             z-index: 2;
 
+            @include media-min-width(xsmall) {
+                left: 0;
+                top: calc($img-xsmall-height / 1.25);
+            }
+
+            @include media-min-width(small) {
+                left: 5%;
+                top: calc($img-small-height / 1.375);
+            }
+
+            @include media-min-width(medium) {
+                top: calc($img-medium-height / 2.5);
+            }
+
             @include media-min-width(xmedium) {
+                left: 10%;
                 top: calc($img-xmedium-height / 3);
             }
 
@@ -31,14 +63,38 @@
         }
 
         div:nth-child(2) > picture > img {
-            right: 10%;
+            @include media-min-width(xsmall) {
+                right: 1%;
+            }
+
+            @include media-min-width(small) {
+                right: 5%;
+            }
+
+            @include media-min-width(xmedium) {
+                right: 10%;
+            }
         }
 
         div:nth-child(3) {
-            left: 10%;
             z-index: 3;
 
+            @include media-min-width(xsmall) {
+                left: 0;
+                top: calc($img-xsmall-height * 2.5);
+            }
+
+            @include media-min-width(small) {
+                left: 5%;
+                top: calc($img-small-height * 2.175);
+            }
+
+            @include media-min-width(medium) {
+                top: calc($img-medium-height * 1.15);
+            }
+
             @include media-min-width(xmedium) {
+                left: 10%;
                 top: $img-xmedium-height;
             }
 
@@ -48,10 +104,24 @@
         }
 
         div:nth-child(4) > picture > img {
-            right: 10%;
             z-index: 2;
 
+            @include media-min-width(xsmall) {
+                right: 1%;
+                top: calc($img-xsmall-height * 1.65);
+            }
+
+            @include media-min-width(small) {
+                right: 5%;
+                top: calc($img-small-height * 1.5);
+            }
+
+            @include media-min-width(medium) {
+                top: calc($img-medium-height / 1.25);
+            }
+
             @include media-min-width(xmedium) {
+                right: 10%;
                 top: calc($img-xmedium-height / 1.5);
             }
 
@@ -62,14 +132,33 @@
     }
 
     &__quote-textbox {
-        position: absolute;
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 90vw;
         margin: $margin-mobile;
         border: 1px solid $defaul-elements-color;
         background-color: $defaul-elements-color;
         padding: $margin-mobile;
+        box-shadow: 0px 1px 30px -10px rgba(66, 68, 90, 1);
+
+        @include media-min-width(xsmall) {
+            position: absolute;
+            box-shadow: -15px 15px 30px -10px $defaul-elements-color;
+            width: calc($img-xsmall-width * 0.9);
+            height: calc($img-xsmall-height * 0.9);
+        }
+
+        @include media-min-width(small) {
+            width: calc($img-small-width / 1.25);
+            height: calc($img-small-height / 1.25);
+        }
+
+        @include media-min-width(medium) {
+            width: calc($img-medium-width / 1.75);
+            height: calc($img-medium-height / 1.75);
+        }
 
         @include media-min-width(xmedium) {
             width: calc($img-xmedium-width / 2);
@@ -84,7 +173,13 @@
     }
 
     &__quote-text {
+        font-size: base-font-size;
+        font-weight: bold;
         color: $defaul-text-color;
+
+        @include media-min-width(xmedium) {
+            font-size: $large-font-size;
+        }
     }
 
     &__quote-picture {
@@ -92,7 +187,26 @@
     }
 
     &__quote-img {
-        position: absolute;
+        width: 90vw;
+        position: relative;
+        box-shadow: 0px 1px 30px -10px rgba(66, 68, 90, 1);
+
+        @include media-min-width(xsmall) {
+            box-shadow: 15px -15px 30px -10px $defaul-elements-color;
+            position: absolute;
+            width: calc($img-xsmall-width * 0.9);
+            height: calc($img-xsmall-height * 0.9);
+        }
+
+        @include media-min-width(small) {
+            width: calc($img-small-width / 1.25);
+            height: calc($img-small-height / 1.25);
+        }
+
+        @include media-min-width(medium) {
+            width: calc($img-medium-width / 1.75);
+            height: calc($img-medium-height / 1.75);
+        }
 
         @include media-min-width(xmedium) {
             width: calc($img-xmedium-width / 2);
