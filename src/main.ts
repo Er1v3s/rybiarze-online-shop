@@ -8,3 +8,4 @@ import "./scripts/weatherAPI.js";
 import "./scripts/clock.js";
 import "./scripts/dom-weather-utils.js";
 import "./scripts/slider.js";
+import "./scripts/opinions-slider.js";
