@@ -4,12 +4,12 @@
         justify-content: center;
         width: 100%;
         padding: $margin-desktop;
-        margin: $tags-separator-desktop 0;
+        margin: $tags-separator-mobile $margin-mobile;
         background-color: $defaul-elements-color;
         box-shadow: 0px 0px 25px 0px $defaul-elements-color;
 
-        @include media-min-width(medium) {
-            margin: $tags-separator-mobile 0;
+        @include media-min-width(xmedium) {
+            margin: $tags-separator-desktop $margin-desktop;
         }
     }
 

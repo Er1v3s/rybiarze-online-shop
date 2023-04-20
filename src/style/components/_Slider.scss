@@ -4,10 +4,10 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        margin: $tags-separator-mobile;
+        margin: $tags-separator-mobile $margin-mobile;
 
         @include media-min-width(xmedium) {
-            margin: $tags-separator-desktop;
+            margin: $tags-separator-desktop $margin-desktop;
         }
     }
 
@@ -26,7 +26,7 @@
     &__slider-frame {
         overflow: hidden;
         box-shadow: 0px 0px 25px 0px $defaul-elements-color;
-        border-radius: 30px;
+        border-radius: 15px;
         width: $img-under-minimum-width;
         height: $img-under-minimum-height;
         z-index: 2;
