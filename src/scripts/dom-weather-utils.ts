@@ -4,9 +4,6 @@ import { getPosition } from "./geolocationAPI";
 import { getWeather } from "./weatherAPI";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const mainSesctionWeatherElemet: HTMLElement =
-    document.querySelector(".main__weather")!;
-
   const dateElement: HTMLSpanElement = document.querySelector(".main__date")!;
 
   const timeElement: HTMLSpanElement = document.querySelector(".main__time")!;
@@ -44,18 +41,31 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response: APIResponse = await getWeather;
       if (response.err == false) {
-        timeElement.innerText = String(Clock(timeElement));
-        timeElement.innerText = String(Calendar(dateElement));
+        String(Clock(timeElement));
+        String(Calendar(dateElement));
         countryElement.innerText = response.country as string;
         cityElement.innerText = response.city as string;
-        weatherTemperatureElement.innerText = String(response.temperature);
-        weatherTypeElement.innerText = checkWeatherTypeByCode(
+
+        weatherTypeElement.innerHTML = checkWeatherTypeByCode(
           Number(response.weather)
         );
-        weatherHumidityElement.innerText = String(response.humidity);
-        weatherWindSpeedElement.innerText = String(response.windSpeed);
-        weatherSunriseElement.innerText = response.sunrise as string;
-        weatherSunsetElement.innerText = response.sunset as string;
+        weatherTemperatureElement.innerHTML = `
+        <i class="fa-solid fa-temperature-three-quarters"></i>&nbsp;${String(
+          response.temperature
+        )} &#8451;`;
+        weatherHumidityElement.innerHTML = `
+        <i class="fa-solid fa-droplet"></i>
+        <span>&nbsp;${String(response.humidity)}&#37;</span>
+        `;
+        weatherWindSpeedElement.innerHTML = `<i class="fa-solid fa-wind"></i>
+        <span>&nbsp;${String(response.windSpeed)}<small>m/s</small></span>
+        `;
+        weatherSunriseElement.innerHTML = `<i class="fa-solid fa-sun"></i> ${
+          response.sunrise as string
+        }`;
+        weatherSunsetElement.innerHTML = `<i class="fa-solid fa-moon"></i> ${
+          response.sunset as string
+        }`;
       }
     } catch (err) {
       throw new Error("Something went wrong");
@@ -65,15 +75,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const checkWeatherTypeByCode = (code: number) => {
     let weather: string = "";
     if (code >= 200 && code < 300) {
-      weather = "Burza";
+      weather = `<i class="fa-solid fa-cloud-bolt"></i>`;
     } else if (code >= 300 && code < 600) {
-      weather = "Deszcz";
+      weather = `<i class="fa-solid fa-cloud-rain"></i>`;
     } else if (code >= 600 && code < 700) {
-      weather = "Śnieg";
+      weather = `<i class="fa-solid fa-snowflake"></i>`;
     } else if ((code >= 700 && code < 800) || (code > 800 && code < 900)) {
-      weather = "Chmury";
+      weather = `<i class="fa-solid fa-cloud"></i>`;
     } else if (code === 800) {
-      weather = "Słońce";
+      weather = `<i class="fa-solid fa-sun"></i>`;
     }
     return weather;
   };
