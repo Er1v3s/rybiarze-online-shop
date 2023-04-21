@@ -2,6 +2,10 @@
     position: relative;
     height: 100%;
 
+    video {
+        box-shadow: 0px 0px 25px 0px $defaul-elements-color;
+    }
+
     .video-text-field {
         position: absolute;
         top: 0;
@@ -35,6 +39,8 @@
             display: block;
             font-size: 4vw;
             font-weight: 100;
+            user-select: none;
+            cursor: default;
 
             @include media-min-width(medium) {
                 font-size: $xlarge-font-size;

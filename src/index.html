@@ -15,7 +15,7 @@
 
   <meta name="format-detection" content="telephone=no" />
 
-  <link rel="icon" href="../public/favicon.svg">
+  <link rel="icon" href="./favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -95,6 +95,7 @@
   </header>
 
   <main class="main">
+
     <header class="main__header">
       <h2 class="main__header-text">
         Od ponad X lat jesteśmy wiodącym graczem w branży wędkarskiej. Zaufało nam już tysiące użytkowników, którzy
@@ -104,11 +105,260 @@
       </h2>
     </header>
 
-    <section class="#">
-      <article></article>
-      <article></article>
-      <article></article>
+    <section class="main__weather">
+      <div class="main__weather-container">
+        <div class="main__info-date">
+          <span class="main__time"></span>
+          <span class="main__date"></span>
+        </div>
+        <div class="main__info">
+          <span class="main__city"></span>
+          <span class="main__country"></span>
+        </div>
+        <div class="main__current-weather-first">
+          <span class="main__weather-type"></span>
+          <span class="main__weather-temperature"></span>
+        </div>
+        <div class="main__current-weather-second">
+          <span class="main__weather-humidity"></span>
+          <span class="main__weather-windSpeed"></span>
+        </div>
+        <div class="main__current-weather-third">
+          <span class="main__weather-sunrise"></span>
+          <span class="main__weather-sunset"></span>
+        </div>
+      </div>
     </section>
+
+    <section class="main__gallery">
+      <article class="main__gallery-article">
+        <div class="main__gallery-text">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis similique blanditiis aperiam incidunt
+            molestias itaque delectus consequatur.
+          </p>
+        </div>
+        <div class="main__gallery-img">
+          <picture>
+            <source srcset="/pictures/bucket-mobile.webp" media="(orientation: portrait)">
+            <img src="/pictures/bucket-desktop.webp" alt="zdjęcie prezentującę złowioną przez wędkarza rybę">
+          </picture>
+        </div>
+
+      </article>
+
+      <article class="main__gallery-article">
+        <div class="main__gallery-img">
+          <picture>
+            <source srcset="/pictures/equipment-mobile.webp" media="(orientation: portrait)">
+            <img src="/pictures/equipment-desktop.webp" alt="zdjęcie prezentującę złowioną przez wędkarza rybę">
+          </picture>
+        </div>
+        <div class="main__gallery-text">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis similique blanditiis aperiam incidunt
+            molestias itaque delectus consequatur.
+          </p>
+        </div>
+      </article>
+
+      <article class="main__gallery-article">
+        <div class="main__gallery-text">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Fugit eos libero, voluptatum in reiciendis itaque ducimus
+            inventore repudiandae.
+          </p>
+        </div>
+        <div class="main__gallery-img">
+          <picture>
+            <source srcset="/pictures/catched-fish-mobile.webp" media="(orientation: portrait)">
+            <img src="/pictures/catched-fish-desktop.webp" alt="zdjęcie prezentującę złowioną przez wędkarza rybę">
+          </picture>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="main__text-content">
+      <div class="main__text-content-container">
+        <p class="main__text-content-paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+          itaque,
+          facere
+          omnis earum ex
+          praesentium aliquid obcaecati libero asperiores voluptas sunt voluptates delectus, pariatur atque fugit fugiat
+          iusto? Veniam, iusto?
+          Perferendis ea a aperiam voluptates vero enim odio voluptatem hic, autem amet eius ab corrupti quas. Odit, ad
+          itaque! Enim, temporibus nisi? Cum assumenda aliquid expedita placeat, amet aliquam animi.
+          Ullam rem cumque consequatur ipsa illo debitis reprehenderit quidem autem obcaecati adipisci corrupti
+          doloremque qui, quo nihil libero aliquam tempora ipsam, molestias numquam voluptas sapiente omnis at nesciunt
+          ab. Officiis.
+          Similique tenetur quo consequuntur dolorem quam amet omnis vitae provident ipsum voluptates eum, ea eveniet
+          numquam culpa? Omnis quae aut ipsa, nihil similique velit deleniti reprehenderit tenetur suscipit reiciendis
+          ducimus!
+          Odio numquam eius nobis, cupiditate exercitationem ipsa repellendus voluptatem iste perspiciatis? Amet,
+          dolores autem voluptatum aut ratione voluptate, deserunt eos neque ipsam aspernatur expedita reiciendis dicta
+          cumque esse, nam veritatis?</p>
+      </div>
+    </section>
+
+    <section class="main__slider">
+      <div class="main__slider-container">
+        <div class="main__slider-top">
+          <img src="./chevron.svg" alt="go left" class="main__slider-arrow slider-arrow-left">
+          <div class="main__slider-frame">
+            <div class="main__slider-gallery">
+
+              <picture>
+                <source media="(orientation: portrait)" srcset="/pictures/fishermans-mobile.webp">
+                <img class="main__slider-img" src="/pictures/fishermans-desktop.webp">
+              </picture>
+
+              <picture>
+                <source media="(orientation: portrait)" srcset="/pictures/fishing-rod-mobile.webp">
+                <img class="main__slider-img" src="/pictures/fishing-rod-desktop.webp">
+              </picture>
+
+              <picture>
+                <source media="(orientation: portrait)" srcset="/pictures/fisherman-mobile.webp">
+                <img class="main__slider-img" src="/pictures/fisherman-desktop.webp">
+              </picture>
+
+              <picture>
+                <source media="(orientation: portrait)" srcset="/pictures/bait-mobile.webp">
+                <img class="main__slider-img" src="/pictures/bait-desktop.webp">
+              </picture>
+
+              <picture>
+                <source media="(orientation: portrait)" srcset="/pictures/fisherman-2-mobile.webp">
+                <img class="main__slider-img" src="/pictures/fisherman-2-desktop.webp">
+              </picture>
+
+            </div>
+          </div>
+          <img src=" ./chevron.svg" alt="go right" class="main__slider-arrow slider-arrow-right">
+        </div>
+        <div class="main__slider-bottom"></div>
+      </div>
+    </section>
+
+    <section class="main__quote">
+      <div class="main__quote-container">
+        <div class="main__quote-textbox">
+          <span class="main__quote-text">"Wędkarstwo to nie tylko połów ryb, to sposób życia, filozofia, medytacja i
+            sposób na oderwanie się od rzeczywistości" - <strong>Tomasz Dąbrowski</strong>
+          </span>
+        </div>
+        <div class="main__quote-picture">
+          <picture>
+            <source media="(orientation: portrait)" srcset="/pictures/fisherman-mobile.webp">
+            <img class="main__quote-img" src="/pictures/fisherman-desktop.webp">
+          </picture>
+        </div>
+
+        <div class="main__quote-textbox">
+          <span class="main__quote-text">"Nie ma nic piękniejszego niż cisza na łowisku, gdzie jedynym dźwiękiem jest
+            szum
+            wody i śpiew ptaków" - <strong>Arthur Ransome</strong>
+          </span>
+        </div>
+        <div class="main__quote-picture">
+          <picture>
+            <source media="(orientation: portrait)" srcset="/pictures/fisherman-2-mobile.webp">
+            <img class="main__quote-img" src="/pictures/fisherman-2-desktop.webp">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="main__opinions">
+      <div class="main__opinions-container">
+        <div class="main__opinions-slide active">
+          <div class="main__opinions-img">
+            <img src="/people/user-1.jpg" alt="user photo">
+          </div>
+          <div class="main__opinions-name">
+            <span>
+              Adam Kowalkis
+            </span>
+          </div>
+          <div class="main__opinions-comment">
+            <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ipsam soluta possimus, quisquam
+              dolorum
+              laborum numquam odio deleniti ex ipsum."</p>
+          </div>
+        </div>
+
+        <div class="main__opinions-slide next">
+          <div class="main__opinions-img">
+            <img src="/people/user-2.jpg" alt="user photo">
+          </div>
+          <div class="main__opinions-name">
+            <span>
+              Marcin Gorzki
+            </span>
+          </div>
+          <div class="main__opinions-comment">
+            <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ipsam soluta possimus, quisquam
+              dolorum
+              laborum numquam odio deleniti ex ipsum."</p>
+          </div>
+        </div>
+
+        <div class="main__opinions-slide">
+          <div class="main__opinions-img">
+            <img src="/people/user-3.jpg" alt="user photo">
+          </div>
+          <div class="main__opinions-name">
+            <span>
+              Lil Rae-Kwiatkowska
+            </span>
+          </div>
+          <div class="main__opinions-comment">
+            <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ipsam soluta possimus, quisquam
+              dolorum
+              laborum numquam odio deleniti ex ipsum."</p>
+          </div>
+        </div>
+
+        <div class="main__opinions-slide">
+          <div class="main__opinions-img">
+            <img src="/people/user-4.jpg" alt="user photo">
+          </div>
+          <div class="main__opinions-name">
+            <span>
+              Dagmara Wojciechowska
+            </span>
+          </div>
+          <div class="main__opinions-comment">
+            <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ipsam soluta possimus, quisquam
+              dolorum
+              laborum numquam odio deleniti ex ipsum."</p>
+          </div>
+        </div>
+
+        <div class="main__opinions-slide prev">
+          <div class="main__opinions-img">
+            <img src="/people/user-5.jpg" alt="user photo">
+          </div>
+          <div class="main__opinions-name">
+            <span>
+              Grzegorz Floryda
+            </span>
+          </div>
+          <div class="main__opinions-comment">
+            <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ipsam soluta possimus, quisquam
+              dolorum
+              laborum numquam odio deleniti ex ipsum."</p>
+          </div>
+        </div>
+      </div>
+      <div class="main__opinions-btn-container">
+        <button class="main__opinions-btn-left"><i class="fas fa-angle-left"></i></button>
+        <button class="main__opinions-btn-right"><i class="fas fa-angle-right"></i></button>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -134,11 +384,11 @@
         <article class="footer__contact">
           <div class="footer__phone">
             <i class="fa-solid fa-phone"></i>
-            <span>+48 123 123 123</span>
+            <strong>+48 123 123 123</strong>
           </div>
           <div class="footer_address">
             <i class="fa-sharp fa-solid fa-location-dot"></i>
-            <span>ul. Jana Pawła II 21/37 Wadowice</span>
+            <strong>ul. Jana Pawła II 21/37 Wadowice</strong>
           </div>
         </article>
 
