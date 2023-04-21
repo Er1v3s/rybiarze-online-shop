@@ -121,6 +121,10 @@
         @include media-min-width(xmedium) {
             font-size: $large-font-size;
         }
+
+        strong {
+            color: $unique-text-color;
+        }
     }
 
     &__quote-picture {
