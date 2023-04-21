@@ -6,5 +6,7 @@ body {
     min-height: 100vh;
     font-family: "Nunito", sans-serif;
     background-color: $defaul-site-color;
-    color: black;
+    color: $defaul-text-color-black;
+    user-zoom: fixed;
+    touch-action: pan-x pan-y;
 }

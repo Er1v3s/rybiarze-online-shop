@@ -1,8 +1,8 @@
-const opinionsSectionElement: HTMLElement =
-  document.querySelector(".main__opinions")!;
+// const opinionsSectionElement: HTMLElement =
+//   document.querySelector(".main__opinions")!;
 
 const opinionsSlideElement: NodeListOf<HTMLDivElement> =
-  document.querySelectorAll(".main__opinions-slide")!;
+  document.querySelectorAll(".slider-v2-slide")!;
 
 let current: number = 0;
 let prev: number = 4;
@@ -49,9 +49,9 @@ const toSlide = (number: number) => {
 };
 
 document
-  .querySelector(".main__opinions-btn-left")!
+  .querySelector(".slider-v2-btn-left")!
   .addEventListener("click", prevOpinionsSlide);
 
 document
-  .querySelector(".main__opinions-btn-right")!
+  .querySelector(".slider-v2-btn-right")!
   .addEventListener("click", nextOpinionsSlide);

@@ -13,6 +13,8 @@
         content='sklep wędkarski, wędki, kołowrotki, haczyki, spławiki, przynęty, siatki, podbieraki, cięzarki,'>
     <meta name='robots' content='index,follow'>
 
+    <meta name="format-detection" content="telephone=no" />
+
     <link rel="icon" href="public/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +32,7 @@
         <nav class="nav">
             <div class="nav__container">
                 <div class="nav__logo">
-                    <a href="../index.html">
+                    <a href="index.html">
                         <img src="/logo-white.svg" alt="logo sklepu">
                     </a>
                 </div>
@@ -72,7 +74,7 @@
 
             <div class="nav__mobile-menu">
                 <ul>
-                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="../index.html">Strona główna</a></li>
                     <li><a href="/pages/shop.html">Sklep</a></li>
                     <li><a href="/pages/blog.html">Blog</a></li>
                     <li><a href="/pages/forum.html">Forum</a></li>
@@ -104,7 +106,7 @@
             <div class="shop-main__new-products-container">
                 <header class="shop-main__new-products-header">
                     <span class="shop-main__new-products-header-text">
-                        Nowe produkty
+                        Nasze produkty
                     </span>
                     <nav class="shop-main__new-products-nav">
                         <ul>
@@ -214,8 +216,92 @@
                         </div>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <section class="shop-main__commercial-baner">
+            <picture class="shop-main__commercial-baner-img">
+                <source srcset="/pictures/equipment-2-mobile.webp" media="(orientation: portrait)">
+                <img src="/pictures/shop-commercial-baner.webp" alt="zdjęcie prezentującę złowioną przez wędkarza rybę">
+            </picture>
+
+            <div class="shop-main__commercial-baner-over">
+                <span class="shop-main__commercial-baner-text">
+                    Najlepsze produkty w najniższych cenach
+                </span>
+            </div>
+        </section>
+
+        <section class="shop-main__slider">
+            <div class="shop-main__slider-container slider-v2-container">
+                <div class="shop-main__slider-slide slider-v2-slide active product-card">
+                    <div class="product-card__image">
+                        <img src="/pictures/equipment-mobile.webp" alt="Obraz produktu">
+                    </div>
+                    <div class="product-card__content">
+                        <h2 class="product-card__title">Nazwa produktu</h2>
+                        <p class="product-card__description">Opis produktu</p>
+                        <h3 class="product-card__price">299,99 zł</h3>
+                        <button class="product-card__button">Dodaj do koszyka</button>
+                    </div>
+                </div>
+
+                <div class="shop-main__slider-slide slider-v2-slide next product-card">
+                    <div class="product-card__image">
+                        <img src="/pictures/equipment-mobile.webp" alt="Obraz produktu">
+                    </div>
+                    <div class="product-card__content">
+                        <h2 class="product-card__title">Nazwa produktu</h2>
+                        <p class="product-card__description">Opis produktu</p>
+                        <h3 class="product-card__price">299,99 zł</h3>
+                        <button class="product-card__button">Dodaj do koszyka</button>
+                    </div>
+                </div>
+
+                <div class="shop-main__slider-slide slider-v2-slide product-card">
+                    <div class="product-card__image">
+                        <img src="/pictures/equipment-mobile.webp" alt="Obraz produktu">
+                    </div>
+                    <div class="product-card__content">
+                        <h2 class="product-card__title">Nazwa produktu</h2>
+                        <p class="product-card__description">Opis produktu</p>
+                        <h3 class="product-card__price">299,99 zł</h3>
+                        <button class="product-card__button">Dodaj do koszyka</button>
+                    </div>
+                </div>
+
+                <div class="shop-main__slider-slide slider-v2-slide product-card">
+                    <div class="product-card__image">
+                        <img src="/pictures/equipment-mobile.webp" alt="Obraz produktu">
+                    </div>
+                    <div class="product-card__content">
+                        <h2 class="product-card__title">Nazwa produktu</h2>
+                        <p class="product-card__description">Opis produktu</p>
+                        <h3 class="product-card__price">299,99 zł</h3>
+                        <button class="product-card__button">Dodaj do koszyka</button>
+                    </div>
+                </div>
+
+                <div class="shop-main__slider-slide slider-v2-slide prev product-card">
+                    <div class="product-card__image">
+                        <img src="/pictures/equipment-mobile.webp" alt="Obraz produktu">
+                    </div>
+                    <div class="product-card__content">
+                        <h2 class="product-card__title">Nazwa produktu</h2>
+                        <p class="product-card__description">Opis produktu</p>
+                        <h3 class="product-card__price">299,99 zł</h3>
+                        <button class="product-card__button">Dodaj do koszyka</button>
+                    </div>
+                </div>
 
             </div>
+
+            <div class="shop-main__slider-btn-container slider-v2-btn-container">
+                <button class="shop-main__slider-btn-left slider-v2-btn-left"><i class="fas fa-angle-left"></i></button>
+                <button class="shop-main__slider-btn-right slider-v2-btn-right"><i
+                        class="fas fa-angle-right"></i></button>
+            </div>
+
         </section>
 
     </main>
