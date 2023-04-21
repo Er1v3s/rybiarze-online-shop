@@ -1,0 +1,25 @@
+.main {
+    &__text-content {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: $margin-desktop;
+        margin: $tags-separator-mobile $margin-mobile;
+        background-color: $defaul-elements-color;
+        box-shadow: 0px 0px 25px 0px $defaul-elements-color;
+
+        @include media-min-width(xmedium) {
+            margin: $tags-separator-desktop $margin-desktop;
+        }
+    }
+
+    &__text-content-container {
+        text-align: justify;
+        max-width: 1920px;
+    }
+
+    &__text-content-paragraph {
+        color: $defaul-text-color;
+        font-size: $base-font-size;
+    }
+}
