@@ -1,0 +1,26 @@
+.forum-main {
+    background-color: $defaul-elements-color;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .najman {
+        position: relative;
+
+        &-txt {
+            width: 75%;
+            font-size: 8vw;
+            font-weight: bolder;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            @include media-min-width(xmedium) {
+                top: 20%;
+                font-size: 4vw;
+            }
+        }
+    }
+}
