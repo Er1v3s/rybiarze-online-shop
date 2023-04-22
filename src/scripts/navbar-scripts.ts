@@ -16,13 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
       mobileMenuElement.style.animation = "slide-in 0.7s ease forwards";
       mobileMenuElement.classList.add("nav__mobile-menu--show");
     }
-
     transformBurger();
   };
 
   const transformBurger = (): void => {
-    burgerMenuElement.classList.remove("active");
-    burgerMenuElement.classList.add("not-active");
+    burgerMenuElement.classList.toggle("active");
+    burgerMenuElement.classList.toggle("not-active");
   };
 
   burgerMenuElement.addEventListener("click", showMobileMenu);

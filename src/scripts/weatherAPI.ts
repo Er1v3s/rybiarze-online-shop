@@ -1,4 +1,3 @@
-import { getPosition } from "./geolocationAPI";
 import { APIResponse } from "./date-types";
 
 const API_KEY = "0fd315853dadfc3d29223b017ceb5bc8";

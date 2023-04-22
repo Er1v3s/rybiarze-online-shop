@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const scrollDown = () => {
-    window.scrollTo(0, headerElement.offsetHeight);
+    window.scrollTo(0, headerElement.offsetHeight - 50);
     scrollBtnElement.style.transform = "rotateX(540deg) translateX(-50%)";
   };
 

@@ -1,0 +1,25 @@
+.shop-main {
+    &__slider {
+        max-width: 1440px;
+        margin: $tags-separator-mobile auto !important;
+
+        &-slide {
+            display: block !important;
+            height: auto !important;
+
+            width: calc(75% - 20px) !important;
+
+            @include media-min-width(small) {
+                width: calc(60% - 20px) !important;
+            }
+
+            @include media-min-width(medium) {
+                width: calc(40% - 20px) !important;
+            }
+
+            @include media-min-width(xmedium) {
+                width: calc(30% - 20px) !important;
+            }
+        }
+    }
+}

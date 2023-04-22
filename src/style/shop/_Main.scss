@@ -1,4 +1,4 @@
-main.shop-main {
-    height: 300vh;
-    // background-color: teal;
-}
+@import "./Main-new-products";
+@import "../components/Shop-card";
+@import "./Main-commercial-baner";
+@import "./Main-slider";
