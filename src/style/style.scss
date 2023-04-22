@@ -11,6 +11,7 @@
 @import "./components/Nav-burger-menu";
 @import "./components/Scroll-btn";
 @import "./components/Slider";
+@import "./components/Slider-v2";
 
 @import "./components/Footer";
 
@@ -21,3 +22,12 @@
 // Shop
 @import "./shop/Header";
 @import "./shop/Main";
+
+// Blog
+@import "./blog/Main";
+
+// Forum
+@import "./forum/Main";
+
+// About
+@import "./about/Main";

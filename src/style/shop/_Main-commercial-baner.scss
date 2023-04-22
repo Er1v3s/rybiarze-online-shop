@@ -1,0 +1,39 @@
+.shop-main {
+    &__commercial-baner {
+        position: relative;
+        margin: $tags-separator-mobile 0;
+
+        @include media-min-width(xmedium) {
+            margin: $tags-separator-desktop 0;
+        }
+
+        &-img {
+            img {
+                width: 100%;
+            }
+        }
+
+        &-over {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 25%;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+            background-color: rgba($color: $defaul-elements-color, $alpha: 0.85);
+        }
+
+        &-text {
+            text-transform: uppercase;
+            color: $defaul-text-color;
+            font-size: 4vw;
+
+            @include media-min-width(medium) {
+                font-size: $large-font-size;
+            }
+        }
+    }
+}

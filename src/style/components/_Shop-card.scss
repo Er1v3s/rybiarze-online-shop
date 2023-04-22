@@ -1,0 +1,89 @@
+.product-card {
+    background-color: $defaul-site-color !important;
+    color: $defaul-text-color-black;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    overflow: hidden;
+    width: 100%;
+
+    &:nth-child(n + 5) {
+        display: none;
+    }
+
+    @include media-min-width(small) {
+        width: calc(50% - 20px);
+
+        &:nth-child(n + 5):not(:nth-child(n + 7)) {
+            display: block;
+        }
+    }
+
+    @include media-min-width(medium) {
+        width: calc(33.33% - 20px);
+    }
+
+    @include media-min-width(xmedium) {
+        width: calc(25% - 20px);
+
+        &:nth-child(n + 5) {
+            display: block;
+        }
+    }
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 0 auto;
+    }
+
+    &__image {
+        height: 200px;
+        overflow: hidden;
+    }
+
+    &__image img {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    &__content {
+        flex-grow: 1;
+        padding: 20px;
+        text-align: center;
+    }
+
+    &__title {
+        font-size: $large-font-size;
+        font-weight: bold;
+        margin: 0 0 10px 0;
+    }
+
+    &__description {
+        font-size: $medium-font-size;
+        margin: 0 0 10px 0;
+    }
+
+    &__price {
+        color: $green-color;
+        font-size: $large-font-size;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__button {
+        background-color: $green-color;
+        color: $defaul-text-color;
+        font-weight: 700;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px;
+        margin: 20px 0;
+        width: 100%;
+    }
+}
