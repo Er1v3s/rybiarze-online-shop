@@ -5,8 +5,8 @@ import { getWeather } from "./weatherAPI";
 
 document.addEventListener("DOMContentLoaded", () => {
   if (
-    window.location.pathname === "/index.html" ||
-    window.location.pathname === "/"
+    window.location.pathname === "/rybiarze-online-shop/index.html" ||
+    window.location.pathname === "/rybiarze-online-shop/"
   ) {
     const dateElement: HTMLSpanElement = document.querySelector(".main__date")!;
 

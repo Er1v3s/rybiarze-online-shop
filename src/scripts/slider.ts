@@ -1,6 +1,6 @@
 if (
-  window.location.pathname === "/index.html" ||
-  window.location.pathname === "/"
+  window.location.pathname === "/rybiarze-online-shop/index.html" ||
+  window.location.pathname === "/rybiarze-online-shop/"
 ) {
   const arrowLeftElement: HTMLImageElement =
     document.querySelector(".slider-arrow-left")!;
