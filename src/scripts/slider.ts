@@ -1,4 +1,7 @@
-if (window.location.href.indexOf("/index.html") > -1) {
+if (
+  window.location.pathname === "/index.html" ||
+  window.location.pathname === "/"
+) {
   const arrowLeftElement: HTMLImageElement =
     document.querySelector(".slider-arrow-left")!;
   const arrowRightElement: HTMLImageElement = document.querySelector(
