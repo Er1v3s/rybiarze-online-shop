@@ -4,7 +4,10 @@ import { getPosition } from "./geolocationAPI";
 import { getWeather } from "./weatherAPI";
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.location.href.indexOf("/index.html") > -1) {
+  if (
+    window.location.pathname === "/index.html" ||
+    window.location.pathname === "/"
+  ) {
     const dateElement: HTMLSpanElement = document.querySelector(".main__date")!;
 
     const timeElement: HTMLSpanElement = document.querySelector(".main__time")!;
