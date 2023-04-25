@@ -1,5 +1,5 @@
 .shop-main {
-    &__new-products {
+    &__recommended-products {
         margin: $tags-separator-mobile $margin-mobile;
 
         @include media-min-width(xmedium) {
@@ -8,7 +8,6 @@
 
         &-container {
             max-width: 1440px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: $tags-separator-desktop;
@@ -16,8 +15,9 @@
 
         &-header {
             display: flex;
-            padding: 0 10px;
+            padding: 0 $margin-desktop / 2;
             justify-content: space-between;
+            align-items: center;
             gap: $margin-desktop;
             flex-wrap: wrap;
 
@@ -25,25 +25,13 @@
                 text-transform: uppercase;
                 font-size: $xlarge-font-size;
                 font-weight: 700;
-            }
-        }
 
-        &-nav {
-            display: flex;
-            align-items: center;
-
-            ul {
-                display: flex;
-                flex-wrap: wrap;
-                gap: $margin-desktop $tags-separator-desktop;
-
-                li {
+                &--anchor {
                     font-size: $base-font-size;
-                    border-bottom: 2px solid $defaul-site-color;
-                    cursor: pointer;
+                    @include subtelHover;
 
-                    &:hover {
-                        border-bottom: 2px solid $green-color;
+                    a {
+                        all: unset;
                     }
                 }
             }
