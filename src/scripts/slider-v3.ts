@@ -56,6 +56,9 @@ class Slider {
 }
 
 // Tworzenie trzech różnych sliderów
-const slider1 = new Slider(document.querySelector(".slider-v3.slider-1")!);
-const slider2 = new Slider(document.querySelector(".slider-v3.slider-2")!);
-const slider3 = new Slider(document.querySelector(".slider-v3.slider-3")!);
+
+if (window.location.pathname === "/rybiarze-online-shop/shop.html") {
+  new Slider(document.querySelector(".slider-v3.slider-1")!);
+  new Slider(document.querySelector(".slider-v3.slider-2")!);
+  new Slider(document.querySelector(".slider-v3.slider-3")!);
+}
