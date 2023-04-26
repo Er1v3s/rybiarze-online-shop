@@ -1,107 +1,46 @@
-const carouselElement: HTMLDivElement = document.querySelector(
-  ".slider-v3-carousel"
+const slider: HTMLDivElement = document.querySelector(".slider-v3")!;
+const sliderContainer: HTMLDivElement = slider.querySelector(
+  ".slider-v3-container"
+)!;
+const sliderCards: NodeListOf<HTMLDivElement> =
+  slider.querySelectorAll(".slider-v3-item")!;
+
+const leftButton: HTMLButtonElement = slider.querySelector(
+  ".slider-v3-button--left"
+)!;
+const rightButton: HTMLButtonElement = slider.querySelector(
+  ".slider-v3-button--right"
 )!;
 
-const allImages: NodeListOf<HTMLImageElement> = document.querySelectorAll(
-  ".slider-v3-carousel img"
-);
-const allImagesArray: Array<HTMLImageElement> =
-  Array.prototype.slice.call(allImages);
-const firstImg = allImages[0];
+let currentOffset: number = 0;
+const itemMargin: number = 16;
 
-const arrowIcons: NodeListOf<HTMLElement> =
-  document.querySelectorAll(".slider-v3-icon")!;
+const cardWidth = sliderCards[0].clientWidth + itemMargin;
+const cardsPerView = Math.floor(slider.offsetWidth / cardWidth) + 1;
+const maxOffset = -cardWidth * (sliderCards.length - cardsPerView);
 
-let isDragStart: boolean = false,
-  isDragging: boolean = false,
-  prevPageX: number,
-  prevScrollLeft: number,
-  positionDiff: number,
-  scrollPosition: number = 1,
-  imgIterator: number = 1;
+const showHideBtn = () => {
+  leftButton.style.display = currentOffset != 0 ? "block" : "none";
+  rightButton.style.display = currentOffset != maxOffset ? "block" : "none";
+};
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
-    scrollPosition = 2;
-    imgIterator = 2;
-  } else if (window.innerWidth > 1024 && window.innerWidth <= 1440) {
-    scrollPosition = 3;
-    imgIterator = 3;
-  } else if (window.innerWidth > 1440) {
-    scrollPosition = 5;
-    imgIterator = 5;
+const handleLeftClick = () => {
+  if (currentOffset < 0) {
+    currentOffset += cardWidth;
+    sliderContainer.style.transform = `translateX(${currentOffset}px)`;
   }
-});
 
-const showHideIcons = () => {
-  arrowIcons[0].style.display =
-    scrollPosition <= imgIterator ? "none" : "block";
-  arrowIcons[1].style.display =
-    scrollPosition == allImagesArray.length ? "none" : "block";
+  showHideBtn();
 };
 
-arrowIcons.forEach((icon) => {
-  icon.addEventListener("click", () => {
-    let firstImgWidth = firstImg.clientWidth;
-    carouselElement.scrollLeft +=
-      icon.id == "left" ? -firstImgWidth : firstImgWidth;
-    if (icon.id == "left") {
-      carouselElement.scrollLeft += -firstImgWidth;
-      scrollPosition--;
-    } else {
-      carouselElement.scrollLeft += firstImgWidth;
-      scrollPosition++;
-    }
-    setTimeout(() => showHideIcons(), 60);
-  });
-});
-
-const autoSlide = (): void | number => {
-  if (
-    carouselElement.scrollLeft -
-      (carouselElement.scrollWidth - carouselElement.clientWidth) >
-      -1 ||
-    carouselElement.scrollLeft <= 0
-  )
-    return;
-
-  positionDiff = Math.abs(positionDiff);
-  let firstImgWidth = firstImg.clientWidth;
-  let valDifference = firstImgWidth - positionDiff;
-
-  if (carouselElement.scrollLeft > prevScrollLeft) {
-    return (carouselElement.scrollLeft +=
-      positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff);
+const handleRightClick = () => {
+  if (currentOffset > maxOffset) {
+    currentOffset -= cardWidth;
+    sliderContainer.style.transform = `translateX(${currentOffset}px)`;
   }
-  carouselElement.scrollLeft -=
-    positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+
+  showHideBtn();
 };
 
-const dragStart = (e: MouseEvent | TouchEvent) => {
-  isDragStart = true;
-  prevPageX = e instanceof MouseEvent ? e.pageX : e.touches[0].pageX;
-  prevScrollLeft = carouselElement.scrollLeft;
-};
-
-const dragging = (e: MouseEvent | TouchEvent) => {
-  if (!isDragStart) return;
-  e.preventDefault();
-  isDragging = true;
-  positionDiff =
-    e instanceof MouseEvent
-      ? e.pageX - prevPageX
-      : e.touches[0].pageX - prevPageX;
-  carouselElement.scrollLeft = prevScrollLeft - positionDiff;
-  showHideIcons();
-};
-
-const dragStop = () => {
-  isDragStart = false;
-  if (!isDragging) return;
-  isDragging = false;
-  autoSlide();
-};
-
-carouselElement.addEventListener("touchstart", dragStart);
-carouselElement.addEventListener("touchmove", dragging);
-carouselElement.addEventListener("touchend", dragStop);
+leftButton.addEventListener("click", handleLeftClick);
+rightButton.addEventListener("click", handleRightClick);

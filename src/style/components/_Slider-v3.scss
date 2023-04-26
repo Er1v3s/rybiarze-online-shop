@@ -1,84 +1,52 @@
 .slider-v3 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
 
     &-container {
         display: flex;
-        max-width: 320px;
-        position: relative;
+        flex-wrap: nowrap;
+        transition: transform 0.5s ease-in-out;
+        transform: translateX(0);
+    }
 
-        @include media-min-width(medium) {
-            max-width: 768px;
+    &-item {
+        background-color: #ffdead;
+        flex: 0 0 calc(100% / 5);
+        margin: $margin-mobile;
+        box-sizing: border-box;
+
+        @media screen and (max-width: 1200px) {
+            flex: 0 0 calc(100% / 3);
         }
 
-        @include media-min-width(xmedium) {
-            max-width: 1024px;
+        @media screen and (max-width: 768px) {
+            flex: 0 0 calc(100% / 2);
         }
 
-        @include media-min-width(large) {
-            max-width: 1440px;
-        }
-
-        & > i {
-            top: 50%;
-            height: 44px;
-            width: 44px;
-            color: $defaul-site-color;
-            cursor: pointer;
-            font-size: $large-font-size;
-            position: absolute;
-            text-align: center;
-            line-height: 44px;
-            background: $defaul-elements-color;
-            border-radius: 50%;
-            transform: translateY(-50%);
-            transition: transform 0.1s linear;
-
-            &:active {
-                transform: translateY(-50%) scale(0.9);
-            }
-
-            &:hover {
-                transform: translateY(-50%) scale(1.1);
-            }
-
-            &:first-child {
-                left: 0px;
-                display: none;
-            }
-
-            &:last-child {
-                right: 0px;
-            }
+        @media screen and (max-width: 480px) {
+            flex: 0 0 100%;
         }
     }
 
-    &-carousel {
-        font-size: 0px;
+    &-button {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        font-size: 2rem;
         cursor: pointer;
-        overflow: hidden;
-        white-space: nowrap;
-        scroll-behavior: smooth;
 
-        img {
-            height: 340px;
-            object-fit: cover;
-            user-select: none;
-            padding: 0 $margin-desktop / 2;
-            width: 100%;
+        &--left {
+            left: 0;
+        }
 
-            @include media-min-width(medium) {
-                width: calc(100% / 2);
-            }
-
-            @include media-min-width(xmedium) {
-                width: calc(100% / 3);
-            }
-
-            @include media-min-width(large) {
-                width: calc(100% / 5);
-            }
+        &--right {
+            right: 0;
         }
     }
 }
