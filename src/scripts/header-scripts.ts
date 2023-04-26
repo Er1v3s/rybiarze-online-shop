@@ -57,23 +57,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Keybaord write effect
 
-  const textField: HTMLDivElement = document.querySelector(
+  const typeWriter = (textField: HTMLDivElement, text: string): void => {
+    let i: number = 0;
+    let writingSpeed: number;
+
+    if (textField) {
+      const type = (): void => {
+        if (i < text.length) {
+          writingSpeed = text.length < 100 ? 50 : 25;
+          textField.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, writingSpeed);
+        }
+      };
+
+      type();
+    }
+  };
+
+  const homePageTextField: HTMLDivElement = document.querySelector(
     ".video-text-field h1"
   )!;
+  const homePageText: string =
+    "Rybiarze - Twój przewodnik po świecie wędkarstwa: techniki połowowe, sprzęt, najlepsze łowiska i porady dla początkujących i zaawansowanych wędkarzy. Z nami nauczysz się, jak skutecznie łowić ryby, wybierać odpowiedni sprzęt i znaleźć najlepsze miejsca na wędkowanie.";
 
-  if (textField) {
-    const text: string =
-      "Rybiarze - Twój przewodnik po świecie wędkarstwa: techniki połowowe, sprzęt, najlepsze łowiska i porady dla początkujących i zaawansowanych wędkarzy. Z nami nauczysz się, jak skutecznie łowić ryby, wybierać odpowiedni sprzęt i znaleźć najlepsze miejsca na wędkowanie.";
-    let i = 0;
+  const blogPageTextField: HTMLDivElement = document.querySelector(
+    ".blog-title-baner__text-over"
+  )!;
+  const blogPageText: string =
+    "Wyłów najlepsze porady i ciekawostki prosto z blogu - Rybiarze";
 
-    const typeWriter = (): void => {
-      if (i < text.length) {
-        textField.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 25);
-      }
-    };
-
-    typeWriter();
-  }
+  typeWriter(homePageTextField, homePageText);
+  typeWriter(blogPageTextField, blogPageText);
 });
