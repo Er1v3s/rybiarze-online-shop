@@ -8,14 +8,14 @@
 
         &-container {
             max-width: 1440px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: $tags-separator-desktop;
+            gap: $tags-separator-mobile;
         }
 
         &-header {
             display: flex;
-            padding: 0 $margin-desktop / 2;
             justify-content: space-between;
             align-items: center;
             gap: $margin-desktop;
@@ -32,6 +32,13 @@
 
                     a {
                         all: unset;
+                        display: flex;
+                        align-items: center;
+                        gap: $margin-mobile;
+
+                        i {
+                            height: 14px;
+                        }
                     }
                 }
             }

@@ -1,11 +1,15 @@
 .slider-v3 {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
-    overflow: hidden;
     position: relative;
 
     &-container {
+        overflow: hidden;
+        margin: 0 40px;
+    }
+
+    &-carousel {
         display: flex;
         flex-wrap: nowrap;
         transition: transform 0.5s ease-in-out;
@@ -13,40 +17,92 @@
     }
 
     &-item {
-        background-color: #ffdead;
-        flex: 0 0 calc(100% / 5);
-        margin: $margin-mobile;
-        box-sizing: border-box;
+        flex: 0 0 100%;
+        margin: 0 $margin-mobile;
+        border-radius: 5px;
 
-        @media screen and (max-width: 1200px) {
-            flex: 0 0 calc(100% / 3);
+        &:first-child {
+            margin-left: 0;
         }
 
-        @media screen and (max-width: 768px) {
-            flex: 0 0 calc(100% / 2);
+        @include media-min-width(small) {
+            flex: 0 0 calc(calc(100% / 2) - 8px);
         }
 
-        @media screen and (max-width: 480px) {
-            flex: 0 0 100%;
+        @include media-min-width(medium) {
+            flex: 0 0 calc(calc(100% / 3) - 8px);
+        }
+
+        @include media-min-width(xmedium) {
+            flex: 0 0 calc(calc(100% / 4) - 8px);
+        }
+
+        @include media-min-width(large) {
+            flex: 0 0 calc(calc(100% / 5) - 8px);
+        }
+
+        img {
+            border-radius: 5px;
+        }
+
+        &-title {
+            text-align: center;
+            font-size: $large-font-size;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+        }
+
+        &-description {
+            text-align: center;
+            font-size: $medium-font-size;
+            margin: 0 0 10px 0;
+        }
+
+        &-price {
+            text-align: center;
+            color: $green-color;
+            font-size: $large-font-size;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        &-button {
+            background-color: $green-color;
+            color: $defaul-text-color;
+            font-weight: 700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            margin: 20px 0;
+            width: 100%;
+
+            @include subtelHover;
         }
     }
 
     &-button {
+        width: 40px;
+        height: 40px;
         display: block;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        border: none;
-        background: transparent;
-        font-size: 2rem;
-        cursor: pointer;
+        border: 1px solid black;
+        background: $defaul-elements-color;
+        color: $defaul-text-color;
+        border-radius: 50%;
+        font-size: $large-font-size;
+
+        @include buttonHover;
 
         &--left {
-            left: 0;
+            left: 0px;
         }
 
         &--right {
-            right: 0;
+            right: 0px;
         }
     }
 }

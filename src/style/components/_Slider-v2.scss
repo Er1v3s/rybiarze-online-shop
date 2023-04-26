@@ -109,19 +109,17 @@
             }
 
             button {
+                background-color: $defaul-elements-color;
                 padding: $margin-mobile;
-                color: $defaul-text-color-black;
+                color: $defaul-text-color;
                 font-size: $giga-font-size;
                 border-radius: 10px;
                 position: relative;
-                opacity: 0.75;
                 transition: all 0.3s ease-in-out;
-                border: 1px solid $defaul-site-color;
-                cursor: pointer;
 
-                &:hover {
-                    opacity: 1;
-                }
+                border: 1px solid $defaul-site-color;
+
+                @include buttonHover;
             }
         }
     }

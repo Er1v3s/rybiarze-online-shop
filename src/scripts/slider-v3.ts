@@ -1,6 +1,6 @@
 const slider: HTMLDivElement = document.querySelector(".slider-v3")!;
 const sliderContainer: HTMLDivElement = slider.querySelector(
-  ".slider-v3-container"
+  ".slider-v3-carousel"
 )!;
 const sliderCards: NodeListOf<HTMLDivElement> =
   slider.querySelectorAll(".slider-v3-item")!;
@@ -19,6 +19,7 @@ const cardWidth = sliderCards[0].clientWidth + itemMargin;
 const cardsPerView = Math.floor(slider.offsetWidth / cardWidth) + 1;
 const maxOffset = -cardWidth * (sliderCards.length - cardsPerView);
 
+console.log(cardWidth);
 const showHideBtn = () => {
   leftButton.style.display = currentOffset != 0 ? "block" : "none";
   rightButton.style.display = currentOffset != maxOffset ? "block" : "none";
@@ -42,5 +43,6 @@ const handleRightClick = () => {
   showHideBtn();
 };
 
+document.addEventListener("DOMContentLoaded", showHideBtn);
 leftButton.addEventListener("click", handleLeftClick);
 rightButton.addEventListener("click", handleRightClick);
