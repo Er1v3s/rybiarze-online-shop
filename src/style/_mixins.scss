@@ -7,6 +7,15 @@
     }
 }
 
+@mixin buttonHoverDarken {
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($green-color, 7.5%);
+    }
+}
+
 @mixin buttonHover {
     transition: 0.1s;
     cursor: pointer;

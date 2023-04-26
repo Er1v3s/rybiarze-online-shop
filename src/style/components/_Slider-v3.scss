@@ -6,7 +6,7 @@
 
     &-container {
         overflow: hidden;
-        margin: 0 40px;
+        margin: 0 20px;
     }
 
     &-carousel {
@@ -78,7 +78,7 @@
             margin: 20px 0;
             width: 100%;
 
-            @include subtelHover;
+            @include buttonHoverDarken;
         }
     }
 
@@ -98,11 +98,11 @@
         @include buttonHover;
 
         &--left {
-            left: 0px;
+            left: -20px;
         }
 
         &--right {
-            right: 0px;
+            right: -20px;
         }
     }
 }

@@ -7,11 +7,15 @@
         }
 
         &-container {
-            max-width: 1440px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: $tags-separator-desktop;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: $margin-desktop;
+            outline: 2px solid lighten($defaul-elements-color, $amount: 70%);
+            border-radius: 5px;
+            background-color: $card-color;
         }
 
         &-header {
@@ -39,7 +43,7 @@
 
                 li {
                     font-size: $base-font-size;
-                    border-bottom: 2px solid $defaul-site-color;
+                    border-bottom: 2px solid $card-color;
                     cursor: pointer;
 
                     &:hover {

@@ -1,12 +1,17 @@
 .shop-main {
-    &__recommended-products {
-        margin: $tags-separator-mobile $margin-mobile;
+    &__recommended-products,
+    &__sale,
+    &__bestsellers {
+        margin: $tags-separator-mobile $margin-desktop * 1.5;
 
         @include media-min-width(xmedium) {
-            margin: $tags-separator-desktop $margin-desktop;
+            margin: $tags-separator-desktop $margin-desktop * 1.5;
         }
 
         &-container {
+            outline: 2px solid lighten($defaul-elements-color, $amount: 70%);
+            border-radius: 5px;
+            background-color: $card-color;
             max-width: 1440px;
             margin: 0 auto;
             display: flex;
@@ -20,6 +25,7 @@
             align-items: center;
             gap: $margin-desktop;
             flex-wrap: wrap;
+            padding: $margin-mobile $margin-desktop;
 
             &-text {
                 text-transform: uppercase;
