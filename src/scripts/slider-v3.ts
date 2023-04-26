@@ -1,48 +1,61 @@
-const slider: HTMLDivElement = document.querySelector(".slider-v3")!;
-const sliderContainer: HTMLDivElement = slider.querySelector(
-  ".slider-v3-carousel"
-)!;
-const sliderCards: NodeListOf<HTMLDivElement> =
-  slider.querySelectorAll(".slider-v3-item")!;
+class Slider {
+  sliderContainer: HTMLDivElement;
+  sliderCards: NodeListOf<HTMLDivElement>;
+  leftButton: HTMLButtonElement;
+  rightButton: HTMLButtonElement;
+  currentOffset: number;
+  itemMargin: number;
+  cardWidth: number;
+  cardsPerView: number;
+  maxOffset: number;
 
-const leftButton: HTMLButtonElement = slider.querySelector(
-  ".slider-v3-button--left"
-)!;
-const rightButton: HTMLButtonElement = slider.querySelector(
-  ".slider-v3-button--right"
-)!;
+  constructor(slider: HTMLDivElement) {
+    this.sliderContainer = slider.querySelector(".slider-v3-carousel")!;
+    this.sliderCards = slider.querySelectorAll(".slider-v3-item")!;
+    this.leftButton = slider.querySelector(".slider-v3-button--left")!;
+    this.rightButton = slider.querySelector(".slider-v3-button--right")!;
+    this.currentOffset = 0;
+    this.itemMargin = 16;
+    this.cardWidth = this.sliderCards[0].clientWidth + this.itemMargin;
+    this.cardsPerView = Math.floor(slider.offsetWidth / this.cardWidth) + 1;
+    this.maxOffset =
+      -this.cardWidth * (this.sliderCards.length - this.cardsPerView);
 
-let currentOffset: number = 0;
-const itemMargin: number = 16;
-
-const cardWidth = sliderCards[0].clientWidth + itemMargin;
-const cardsPerView = Math.floor(slider.offsetWidth / cardWidth) + 1;
-const maxOffset = -cardWidth * (sliderCards.length - cardsPerView);
-
-console.log(cardWidth);
-const showHideBtn = () => {
-  leftButton.style.display = currentOffset != 0 ? "block" : "none";
-  rightButton.style.display = currentOffset != maxOffset ? "block" : "none";
-};
-
-const handleLeftClick = () => {
-  if (currentOffset < 0) {
-    currentOffset += cardWidth;
-    sliderContainer.style.transform = `translateX(${currentOffset}px)`;
+    this.showHideBtn();
+    this.addEventListeners();
   }
 
-  showHideBtn();
-};
+  private showHideBtn = () => {
+    this.leftButton.style.display = this.currentOffset != 0 ? "block" : "none";
+    this.rightButton.style.display =
+      this.currentOffset != this.maxOffset ? "block" : "none";
+  };
 
-const handleRightClick = () => {
-  if (currentOffset > maxOffset) {
-    currentOffset -= cardWidth;
-    sliderContainer.style.transform = `translateX(${currentOffset}px)`;
-  }
+  private handleLeftClick = () => {
+    if (this.currentOffset < 0) {
+      this.currentOffset += this.cardWidth;
+      this.sliderContainer.style.transform = `translateX(${this.currentOffset}px)`;
+    }
 
-  showHideBtn();
-};
+    this.showHideBtn();
+  };
 
-document.addEventListener("DOMContentLoaded", showHideBtn);
-leftButton.addEventListener("click", handleLeftClick);
-rightButton.addEventListener("click", handleRightClick);
+  private handleRightClick = () => {
+    if (this.currentOffset > this.maxOffset) {
+      this.currentOffset -= this.cardWidth;
+      this.sliderContainer.style.transform = `translateX(${this.currentOffset}px)`;
+    }
+
+    this.showHideBtn();
+  };
+
+  private addEventListeners = () => {
+    this.leftButton.addEventListener("click", this.handleLeftClick);
+    this.rightButton.addEventListener("click", this.handleRightClick);
+  };
+}
+
+// Tworzenie trzech różnych sliderów
+const slider1 = new Slider(document.querySelector(".slider-v3.slider-1")!);
+const slider2 = new Slider(document.querySelector(".slider-v3.slider-2")!);
+const slider3 = new Slider(document.querySelector(".slider-v3.slider-3")!);
