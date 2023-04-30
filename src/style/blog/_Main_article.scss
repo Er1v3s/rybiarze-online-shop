@@ -1,0 +1,34 @@
+.blog-main {
+    &__article {
+        display: flex;
+        flex-direction: column;
+        gap: $tags-separator-mobile;
+        width: 100%;
+        max-width: 1440px;
+        padding: $margin-mobile;
+        margin: $tags-separator-mobile $margin-mobile;
+        border: 1px solid lighten($defaul-elements-color, $amount: 70%);
+        border-radius: 5px;
+        box-shadow: 0 0 5px $defaul-elements-color;
+        background-color: $card-color;
+
+        @include media-min-width(xmedium) {
+            padding: $margin-desktop;
+            margin: $tags-separator-mobile $margin-desktop;
+        }
+
+        &-author {
+        }
+
+        &-title {
+        }
+
+        &-img {
+            margin: 0 auto;
+            max-width: 50vh;
+        }
+
+        &-paragraph {
+        }
+    }
+}
