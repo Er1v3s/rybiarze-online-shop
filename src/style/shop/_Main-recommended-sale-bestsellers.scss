@@ -2,7 +2,7 @@
     &__recommended-products,
     &__sale,
     &__bestsellers {
-        margin: $tags-separator-mobile $margin-desktop * 1.5;
+        margin: $tags-separator-mobile $margin-desktop * 2;
 
         @include media-min-width(xmedium) {
             margin: $tags-separator-desktop $margin-desktop * 1.5;
