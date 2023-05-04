@@ -57,7 +57,7 @@ class Slider {
 
 // Tworzenie trzech różnych sliderów
 
-if (window.location.pathname === "/rybiarze-online-shop/shop.html") {
+if (window.location.pathname === "/rybiarze-online-shop/pages/shop.html") {
   new Slider(document.querySelector(".slider-v3.slider-1")!);
   new Slider(document.querySelector(".slider-v3.slider-2")!);
   new Slider(document.querySelector(".slider-v3.slider-3")!);

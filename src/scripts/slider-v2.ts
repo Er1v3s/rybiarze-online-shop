@@ -1,4 +1,8 @@
-if (window.location.pathname === "/rybiarze-online-shop/shop.html") {
+if (
+  window.location.pathname === "/rybiarze-online-shop/pages/shop.html" ||
+  window.location.pathname === "/rybiarze-online-shop/index.html" ||
+  window.location.pathname === "/rybiarze-online-shop/"
+) {
   const opinionsSlideElement: NodeListOf<HTMLDivElement> =
     document.querySelectorAll(".slider-v2-slide")!;
 
@@ -7,6 +11,7 @@ if (window.location.pathname === "/rybiarze-online-shop/shop.html") {
   let next: number = 1;
 
   const nextOpinionsSlide = () => {
+    console.log("XD");
     if (current < 4) {
       toSlide(current + 1);
     } else {
