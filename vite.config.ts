@@ -7,7 +7,7 @@ const outDir = resolve(__dirname, "dist");
 
 export default defineConfig({
   publicDir: resolve(__dirname, "public"),
-  base: "/",
+  base: "/rybiarze-online-shop/",
   root,
   build: {
     outDir,

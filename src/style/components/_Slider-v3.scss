@@ -1,0 +1,108 @@
+.slider-v3 {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+
+    &-container {
+        overflow: hidden;
+        margin: 0 20px;
+    }
+
+    &-carousel {
+        display: flex;
+        flex-wrap: nowrap;
+        transition: transform 0.5s ease-in-out;
+        transform: translateX(0);
+    }
+
+    &-item {
+        flex: 0 0 100%;
+        margin: 0 $margin-mobile;
+        border-radius: 5px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        @include media-min-width(small) {
+            flex: 0 0 calc(calc(100% / 2) - 8px);
+        }
+
+        @include media-min-width(medium) {
+            flex: 0 0 calc(calc(100% / 3) - 8px);
+        }
+
+        @include media-min-width(xmedium) {
+            flex: 0 0 calc(calc(100% / 4) - 8px);
+        }
+
+        @include media-min-width(large) {
+            flex: 0 0 calc(calc(100% / 5) - 8px);
+        }
+
+        img {
+            border-radius: 5px;
+        }
+
+        &-title {
+            text-align: center;
+            font-size: $large-font-size;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+        }
+
+        &-description {
+            text-align: center;
+            font-size: $medium-font-size;
+            margin: 0 0 10px 0;
+        }
+
+        &-price {
+            text-align: center;
+            color: $green-color;
+            font-size: $large-font-size;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        &-button {
+            background-color: $green-color;
+            color: $defaul-text-color;
+            font-weight: 700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            margin: 20px 0;
+            width: 100%;
+
+            @include buttonHoverDarken;
+        }
+    }
+
+    &-button {
+        width: 40px;
+        height: 40px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 1px solid black;
+        background: $defaul-elements-color;
+        color: $defaul-text-color;
+        border-radius: 50%;
+        font-size: $large-font-size;
+
+        @include buttonHover;
+
+        &--left {
+            left: -20px;
+        }
+
+        &--right {
+            right: -20px;
+        }
+    }
+}

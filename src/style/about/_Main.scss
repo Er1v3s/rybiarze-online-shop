@@ -5,22 +5,23 @@
     justify-content: center;
     align-items: center;
 
-    .najman {
-        position: relative;
+    &__container {
+        padding-top: calc(100px + $tags-separator-mobile);
+        padding: $margin-mobile;
 
-        &-txt {
-            width: 75%;
-            font-size: 8vw;
-            font-weight: bolder;
-            position: absolute;
-            top: 25%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        @include media-min-width(medium) {
+            padding-top: calc(100px + $tags-separator-desktop);
+            padding: $tags-separator-desktop;
+        }
+    }
 
-            @include media-min-width(xmedium) {
-                top: 20%;
-                font-size: 4vw;
-            }
+    &__text {
+        color: $defaul-text-color;
+        font-size: $medium-font-size;
+        font-weight: bolder;
+
+        @include media-min-width(xmedium) {
+            font-size: $large-font-size;
         }
     }
 }

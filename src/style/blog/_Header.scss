@@ -1,0 +1,41 @@
+.blog-title-baner {
+    position: relative;
+    padding-top: 100px;
+    background-color: $defaul-elements-color;
+    margin-bottom: $tags-separator-mobile;
+    font-size: 0;
+
+    &__text-over-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba($color: $defaul-elements-color, $alpha: 0.5);
+        box-shadow: 0 0 25px $defaul-elements-color;
+        color: $defaul-text-color;
+        text-align: center;
+    }
+
+    &__text-over {
+        padding: 10%;
+        font-size: $base-font-size;
+        font-weight: 900;
+
+        @include media-min-width(small) {
+            font-size: $large-font-size;
+        }
+        @include media-min-width(medium) {
+            font-size: $xlarge-font-size;
+        }
+        @include media-min-width(xmedium) {
+            font-size: $giga-font-size;
+        }
+        @include media-min-width(large) {
+            font-size: $giga-font-size * 1.5;
+        }
+    }
+}

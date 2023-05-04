@@ -1,0 +1,53 @@
+.shop-main {
+    &__recommended-products,
+    &__sale,
+    &__bestsellers {
+        margin: $tags-separator-mobile $margin-desktop * 1.5;
+
+        @include media-min-width(xmedium) {
+            margin: $tags-separator-desktop $margin-desktop * 1.5;
+        }
+
+        &-container {
+            outline: 2px solid lighten($defaul-elements-color, $amount: 70%);
+            border-radius: 5px;
+            background-color: $card-color;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: $tags-separator-mobile;
+        }
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: $margin-desktop;
+            flex-wrap: wrap;
+            padding: $margin-mobile $margin-desktop;
+
+            &-text {
+                text-transform: uppercase;
+                font-size: $xlarge-font-size;
+                font-weight: 700;
+
+                &--anchor {
+                    font-size: $base-font-size;
+                    @include subtelHover;
+
+                    a {
+                        all: unset;
+                        display: flex;
+                        align-items: center;
+                        gap: $margin-mobile;
+
+                        i {
+                            height: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
