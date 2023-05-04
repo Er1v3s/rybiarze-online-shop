@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/rybiarze-online-shop/pages/blog.html") {
-    const blogContainerElement: HTMLDivElement = document.querySelector(
-      ".blog-main__container"
-    )!;
-    const blogButtonElement: HTMLButtonElement =
-      document.querySelector(".blog-main__button")!;
+    const blogContainers: NodeListOf<HTMLDivElement> =
+      document.querySelectorAll(".blog-main__container");
 
-    blogButtonElement.addEventListener("click", () => {
-      //   console.log();
-      blogContainerElement.classList.toggle("expanded");
-      if (blogContainerElement.classList.contains("expanded")) {
-        blogButtonElement.innerText = "Schowaj";
-      } else {
-        blogButtonElement.innerText = "Zobacz więcej";
-      }
+    blogContainers.forEach((blogContainerElement: HTMLDivElement) => {
+      const blogButtonElement: HTMLButtonElement =
+        blogContainerElement.querySelector(".blog-main__button")!;
+
+      blogButtonElement.addEventListener("click", () => {
+        blogContainerElement.classList.toggle("expanded");
+        if (blogContainerElement.classList.contains("expanded")) {
+          blogButtonElement.innerText = "Schowaj";
+        } else {
+          blogButtonElement.innerText = "Zobacz więcej";
+        }
+      });
     });
   }
 });

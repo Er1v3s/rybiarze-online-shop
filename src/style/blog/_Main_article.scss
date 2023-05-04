@@ -1,29 +1,90 @@
 .blog-main {
     &__article {
-        transform: translate($tags-separator-desktop * 0.75);
         font-size: 0px;
         background-color: $card-color;
         max-width: 1440px;
-        border-radius: 25px;
+        border-radius: 10px;
         box-shadow: 0 0 25px $defaul-elements-color;
+        margin: $tags-separator-mobile $margin-mobile;
 
-        margin: $tags-separator-mobile $margin-mobile * 3;
+        @include media-min-width(medium) {
+            margin: $tags-separator-mobile $margin-mobile * 3;
+            border-radius: 25px;
+        }
 
         @include media-min-width(xmedium) {
             margin: $tags-separator-desktop $margin-desktop * 5;
         }
+
+        &:nth-child(even) {
+            .blog-main__container {
+                grid-template-columns: auto;
+                grid-template-rows: 1fr;
+
+                @include media-min-width(medium) {
+                    grid-template-columns: 5fr 6fr;
+                    grid-template-rows: 1fr auto 1fr;
+                }
+
+                @include media-min-width(xmedium) {
+                    grid-template-columns: 1fr auto;
+                }
+            }
+
+            .blog-main__img {
+                justify-self: center;
+                grid-area: 1/1/2/2;
+
+                @include media-min-width(medium) {
+                    grid-area: 2/2/3/3;
+                }
+
+                @include media-min-width(xmedium) {
+                    transform: translate($tags-separator-desktop * 1.5);
+                }
+            }
+
+            .blog-main__content {
+                grid-area: 2/1/3/2;
+
+                @include media-min-width(medium) {
+                    grid-area: 1/1/4/2;
+                }
+
+                @include media-min-width(xmedium) {
+                    transform: translate($tags-separator-desktop * 0.5);
+                }
+            }
+
+            .blog-main__button {
+                grid-area: 4/1/5/3;
+                @include media-min-width(small) {
+                    grid-area: 4/2/5/3;
+                }
+            }
+        }
     }
 
     &__container {
-        padding: $tags-separator-desktop * 1.5 0;
         display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: 1fr auto 1fr;
-        direction: all 0.3s;
+        grid-template-columns: auto;
+        grid-template-rows: 1fr;
+
+        @include media-min-width(medium) {
+            padding: $tags-separator-mobile 0;
+            grid-template-columns: 6fr 5fr;
+            grid-template-rows: 1fr auto 1fr;
+        }
+
+        @include media-min-width(xmedium) {
+            padding: $tags-separator-desktop 0;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: 1fr auto 1fr;
+        }
 
         &.expanded {
-            grid-template-rows: auto;
-            grid-template-columns: 1fr;
+            grid-template-rows: auto !important;
+            grid-template-columns: 1fr !important;
 
             .blog-main__img {
                 transform: translate(0);
@@ -32,11 +93,15 @@
             }
 
             .blog-main__content {
-                padding: $tags-separator-desktop;
-                padding-bottom: 0;
                 transform: translate(0);
                 grid-area: 2/1/3/2;
-                grid-template-rows: 0.5fr 1.5fr 6fr 1fr;
+                grid-template-rows: auto;
+
+                @include media-min-width(medium) {
+                    padding: $tags-separator-desktop;
+                    padding-bottom: 0;
+                    grid-template-rows: 0.5fr 1.5fr 6fr 1fr;
+                }
             }
 
             .blog-main__text {
@@ -46,33 +111,69 @@
     }
 
     &__img {
-        grid-area: 2/1/3/2;
+        grid-area: 1/1/2/2;
         display: flex;
+        justify-self: center;
         justify-content: center;
         align-items: center;
-        border-radius: 25px;
-        transform: translate(-$tags-separator-desktop * 1.5);
+        margin: $margin-desktop;
         box-shadow: 0 0 25px $defaul-elements-color;
+        border-radius: 10px;
+        @include media-min-width(medium) {
+            border-radius: 25px;
+        }
 
         img {
-            border-radius: 25px;
+            border-radius: 10px;
+            @include media-min-width(medium) {
+                border-radius: 25px;
+            }
+        }
+
+        @include media-min-width(medium) {
+            grid-area: 2/1/3/2;
+        }
+
+        @include media-min-width(xmedium) {
+            transform: translate(-$tags-separator-desktop * 1.5);
         }
     }
 
     &__content {
-        grid-area: 1/2/4/3;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.5fr 1.5fr 4fr 0.5fr;
+        grid-area: 2/1/3/2;
+        grid-template-rows: auto;
+        padding: $margin-desktop;
+        transform: translate(0);
         justify-content: center;
+
         align-items: center;
-        transform: translate(-$tags-separator-desktop * 0.5);
         font-size: $base-font-size;
 
         &.expanded {
             padding: $tags-separator-desktop;
             transform: translate(0);
             grid-area: 2/1/3/2;
+        }
+
+        @include media-min-width(small) {
+            grid-template-rows: 0.5fr 1.5fr 3.5fr 1fr;
+        }
+
+        @include media-min-width(medium) {
+            padding-bottom: 0;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 0.5fr 1.5fr 4fr 0.5fr;
+            grid-area: 1/2/4/3;
+        }
+
+        @include media-min-width(xmedium) {
+            padding: 0;
+            transform: translate(-$tags-separator-desktop * 0.5);
+        }
+
+        & > * {
+            margin: calc($margin-mobile / 2) 0;
         }
     }
 
@@ -95,11 +196,19 @@
         grid-area: 3/1/4/3;
 
         display: -webkit-box;
-        -webkit-line-clamp: 12;
+        -webkit-line-clamp: 6;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: normal;
+
+        @include media-min-width(medium) {
+            -webkit-line-clamp: 9;
+        }
+
+        @include media-min-width(xmedium) {
+            -webkit-line-clamp: 12;
+        }
 
         &.expanded {
             -webkit-line-clamp: initial;
@@ -107,11 +216,16 @@
     }
 
     &__button {
-        grid-area: 4/2/5/3;
+        grid-area: 4/1/5/3;
         background-color: $card-color;
         border: 2px solid $defaul-elements-color;
         padding: $margin-mobile;
         font-size: $base-font-size;
+        color: $defaul-elements-color;
+
+        @include media-min-width(small) {
+            grid-area: 4/2/5/3;
+        }
 
         @include buttonHover;
     }
