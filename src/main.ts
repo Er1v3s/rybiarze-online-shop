@@ -9,3 +9,5 @@ import "./scripts/clock.js";
 import "./scripts/dom-weather-utils.js";
 import "./scripts/slider.js";
 import "./scripts/slider-v2.js";
+import "./scripts/slider-v3.js";
+import "./scripts/blog-scripts.js";
