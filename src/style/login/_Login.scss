@@ -1,0 +1,87 @@
+.login-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $defaul-elements-color;
+    color: $defaul-text-color;
+    font-size: $base-font-size;
+
+    &__wrapper {
+        background-color: lighten($color: $defaul-elements-color, $amount: 10%);
+        padding: $tags-separator-desktop;
+        box-shadow: 0px 0px 25px 0px lighten($color: $defaul-elements-color, $amount: 10%);
+        border-radius: 15px;
+
+        & > form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            & > div input {
+                padding: 10px;
+                border-radius: 0;
+                border: 0;
+                width: 100%;
+                height: 50px;
+                outline: none;
+                background-color: $defaul-elements-color;
+                border: 3px solid navajowhite;
+                color: $defaul-text-color;
+                font-size: $large-font-size;
+                transition: 0.3s;
+
+                &:focus {
+                    border-color: darken($color: navajowhite, $amount: 10%);
+                    outline: none;
+                }
+            }
+
+            & > div button {
+                width: 100%;
+                height: 50px;
+                padding: 10px;
+                background-color: navajowhite;
+                border: none;
+                font-size: $large-font-size;
+                text-transform: uppercase;
+                transition: 0.3s;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: darken($color: navajowhite, $amount: 5%);
+                }
+            }
+        }
+    }
+
+    &__statute {
+        display: flex;
+
+        .statute {
+            margin: 0;
+            height: 24px;
+            width: 24px;
+            cursor: pointer;
+        }
+
+        span {
+            margin-left: 10px;
+        }
+    }
+
+    &__title {
+        width: 100%;
+        text-align: center;
+        font-size: $xlarge-font-size;
+    }
+
+    &__link {
+        color: navajowhite;
+        text-decoration: none;
+
+        &:hover {
+            color: darken($color: navajowhite, $amount: 5%);
+        }
+    }
+}

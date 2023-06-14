@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Rybiarze - zaloguj się!</title>
+
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="icon" href="public/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <base href="/rybiarze-online-shop/" />
+</head>
+
+<body>
+
+    <main class="login-main">
+        <div class="login-main__wrapper">
+            <form action="/api/login.php" method="post" autocomplete="no">
+                <span class="login-main__title">
+                    Logowanie
+                </span>
+                <div class="login-main__email-wrapper" data-validate="Valid email is required: ex@abc.xyz">
+                    <input class="login-main__email" type="text" name="email" placeholder="Email" required>
+                </div>
+                <div class="login-main__password-wrapper" data-validate="Password is required">
+                    <input class="login-main__pawwsowrd" type="password" name="pass" placeholder="Hasło" required>
+                </div>
+                <div class="login-main__submit-btn-wrapper">
+                    <button class="login-main__submit-btn">
+                        Zaloguj się
+                    </button>
+                </div>
+                <div class="login-main__forgot-password">
+                    <span class="">
+                        Zapomniałeś hasła?
+                    </span>
+                    <a href="#" class="login-main__link">
+                        Przypomnij hasło
+                    </a>
+                </div>
+                <div class="login-main__create-new-account">
+                    <span class="">
+                        Nie masz jeszcze konta?
+                    </span>
+                    <a href="./pages/register.html" class="login-main__link">
+                        Stwórz konto
+                    </a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="../main.ts"></script>
+</body>
+
+</html>

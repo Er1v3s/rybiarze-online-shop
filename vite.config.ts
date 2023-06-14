@@ -27,4 +27,13 @@ export default defineConfig({
       plugins: [autoprefixer()],
     },
   },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://127.0.0.1/src/php",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });
