@@ -3,11 +3,12 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: $defaul-elements-color;
+    background-color: $defaul-site-color;
     color: $defaul-text-color;
     font-size: $base-font-size;
 
     &__wrapper {
+        margin: 10px;
         background-color: lighten($color: $defaul-elements-color, $amount: 10%);
         padding: $tags-separator-desktop;
         box-shadow: 0px 0px 25px 0px lighten($color: $defaul-elements-color, $amount: 10%);
@@ -83,5 +84,53 @@
         &:hover {
             color: darken($color: navajowhite, $amount: 5%);
         }
+    }
+
+    &__create-new-account {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    &__error-wrapper {
+        max-width: 318px;
+        color: red;
+    }
+
+    &__success-wrapper {
+        margin: 10px;
+        background-color: lighten($color: $defaul-elements-color, $amount: 10%);
+        padding: $tags-separator-desktop;
+        box-shadow: 0px 0px 25px 0px lighten($color: $defaul-elements-color, $amount: 10%);
+        border-radius: 15px;
+    }
+
+    &__success-title {
+        text-align: center;
+        font-size: $xlarge-font-size;
+        color: $defaul-text-color;
+    }
+
+    &__success-button {
+        font-size: $xlarge-font-size;
+        text-decoration: none;
+        color: navajowhite;
+    }
+
+    &__user-name {
+        color: navajowhite;
+    }
+}
+
+.logout_button {
+    margin-top: 20px;
+    background-color: navajowhite;
+    border: none;
+    width: 100%;
+    font-size: $xlarge-font-size;
+    padding: $tags-separator-mobile;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($color: navajowhite, $amount: 10%);
     }
 }
