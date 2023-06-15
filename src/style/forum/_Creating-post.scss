@@ -1,0 +1,41 @@
+.forum-main {
+    &__creating-post {
+        width: 95vw;
+        background-color: $defaul-elements-color;
+        padding: $tags-separator-mobile;
+        box-shadow: 0px 0px 25px 0px $defaul-elements-color;
+        border-radius: 15px;
+        margin-bottom: 25px;
+
+        h2 {
+            color: white;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        padding: 10px;
+        font-size: $base-font-size;
+        background-color: $defaul-site-color;
+    }
+
+    &__submit-button {
+        width: 100%;
+        padding: 10px;
+        background-color: navajowhite;
+        border: none;
+        font-size: $base-font-size;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($color: navajowhite, $amount: 10%);
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        color: white;
+    }
+}

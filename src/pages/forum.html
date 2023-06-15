@@ -89,12 +89,62 @@
     </header>
 
     <main class="forum-main">
+        <div class="forum-main__creating-post">
+            <h2>Dodaj Post</h2>
+            <hr />
+            <form>
+                <div>
+                    <label for="validation1" class="forum-main__form-label">
+                        <h3>Tytuł</h3>
+                    </label>
+                    <input type="text" id="validation1" class="forum-main__input" required />
+                </div>
+
+                <div>
+                    <label for="validation2" class="forum-main__form-label">
+                        <h3>Krótki opis</h3>
+                    </label>
+                    <input type="text" id="validation2" class="forum-main__input" required />
+                </div>
+
+                <div>
+                    <label for="validation3" class="forum-main__form-label">
+                        <h3>Treść wpisu</h3>
+                    </label>
+                    <textarea id="validation3" class="forum-main__input" required>
+
+                    </textarea>
+                </div>
+
+                <div>
+                    <button type="submit" class="forum-main__submit-button">Dodaj post</button>
+                </div>
+            </form>
+        </div>
+
+        <a href="/article/@post.Id">
+            <div class="forum-main__post">
+                <div class="forum-main__post-header">
+                    <h1>Jaki haczyk najlepszy na początek?</h1>
+                    <p>Witajcie drodzy wędkarze ja z takim szybkim pytaniem jaki haczyk na początek najlpeszy</p>
+                </div>
+                <div class="forum-main__post-info">
+                    <time>15.06.2023r.</time>
+                    <div class="forum-main__post-user">
+                        <h4>Filip Statkiewicz</h4>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </main>
+
+    <!-- <main class="forum-main">
         <div class="najman">
             <span class="najman-txt">Hola hola wojowniku, anonimowo to każdy wyszczekany. </span>
             <img src="/people/najman.webp" alt="">
             <span class="najman-txt">Dostęp do forum tylko dla zalogowanych!</span>
         </div>
-    </main>
+    </main> -->
 
     <footer class="footer">
         <div class="footer__container">
