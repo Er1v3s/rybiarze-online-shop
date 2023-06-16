@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Rybiarze - forum</title>
+    <title>Rybiarze - zaloguj się!</title>
 
     <meta name="format-detection" content="telephone=no" />
 
@@ -23,7 +23,66 @@
     <base href="/rybiarze-online-shop/" />
 </head>
 
-<header class="page-header">
+<body>
+
+    <header class="page-header">
+        <nav class="nav">
+        <div class="nav__container">
+            <div class="nav__logo">
+            <a href="index.html">
+                <img src="/logo-white.svg" alt="logo sklepu">
+            </a>
+            </div>
+
+            <div class="nav__burger not-active">
+            <span></span>
+            <span></span>
+            <span></span>
+            </div>
+
+            <div class="nav__menu">
+            <ul>
+                <li><a href="index.html">Strona główna</a></li>
+                <li><a href="./pages/shop.html">Sklep</a></li>
+                <li><a href="./pages/blog.html">Blog</a></li>
+                <li><a href="/api/forum.php">Forum</a></li>
+                <li><a href="./pages/about.html">O firmie</a></li>
+            </ul>
+            </div>
+
+            <div class="nav__options">
+            <ul>
+                <li>
+                <a href="/api/loginPage.php">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Twoje konto</span>
+                </a>
+                </li>
+                <li>
+                <a href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Koszyk</span>
+                </a>
+                </li>
+            </ul>
+            </div>
+
+        </div>
+
+        <div class="nav__mobile-menu">
+            <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="./pages/shop.html">Sklep</a></li>
+            <li><a href="./pages/blog.html">Blog</a></li>
+            <li><a href="/api/forum.php">Forum</a></li>
+            <li><a href="./pages/about.html">O firmie</a></li>
+            </ul>
+        </div>
+
+        </nav>
+    </header>
+
+    <header class="page-header">
         <nav class="nav">
             <div class="nav__container">
                 <div class="nav__logo">
@@ -115,40 +174,51 @@
             </form>
         </div>
 
-        <!-- <?php 
+        <?php
+           
             $DATABASE_HOST = 'localhost';
             $DATABASE_USER = 'root';
             $DATABASE_PASS = '';
             $DATABASE_NAME = 'RybiarzeDB';
-        
+
             $connection = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 
-            if ($mysqli->connect_error) {
-                die("Błąd połączenia z bazą danych: " . $mysqli->connect_error);
+            if (!$connection) {
+                die("Błąd połączenia z bazą danych: " . mysqli_connect_error());
             }
-            
-            // Zapytanie SQL do pobrania wszystkich postów
-            $sql = "SELECT * FROM nazwa_tabeli_postów";
-            $result = $mysqli->query($sql);
-            
-            // Sprawdzenie czy zapytanie zwróciło wyniki
-            if ($result->num_rows > 0) {
-                // Przetwarzanie każdego wiersza wynikowego
-                while ($row = $result->fetch_assoc()) {
-                    $postId = $row['Id'];
-                    $postTitle = $row['tytuł'];
-                    $postContent = $row['treść'];
-                    $postDate = $row['data'];
-                    $postAuthor = $row['autor'];
-                }
-            } else {
-                echo "Brak postów w bazie danych.";
+
+            $query = "SELECT posts.Title, posts.Introduction, posts.BodyText, posts.Created, users.email FROM posts JOIN users ON posts.ForumUserId = users.Id";
+
+            $result = mysqli_query($connection, $query);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                $title = $row['Title'];
+                $introduction = $row['Introduction'];
+                $created = $row['Created'];
+                $author = $row['email'];
+                $author = preg_replace('/@.*$/', '', $author);
+
+
+                echo '<a href="/article/@post.Id">';
+                echo '<div class="forum-main__post">';
+                echo '<div class="forum-main__post-header">';
+                echo '<h1>' . $title . '</h1>';
+                echo '<p>' . $introduction . '</p>';
+                echo '</div>';
+                echo '<div class="forum-main__post-info">';
+                echo '<time>' . $created . '</time>';
+                echo '<div class="forum-main__post-user">';
+                echo '<h4>' . $author . '</h4>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</a>';
             }
-            
-            $mysqli->close();
+
+            mysqli_free_result($result);
         ?>
 
-        <a href="/article/@post.Id">
+        <!-- <a href="/article/@post.Id">
             <div class="forum-main__post">
                 <div class="forum-main__post-header">
                     <h1>Jaki haczyk najlepszy na początek?</h1>
@@ -164,14 +234,7 @@
         </a> -->
 
     </main>
-
-    <!-- <main class="forum-main">
-        <div class="najman">
-            <span class="najman-txt">Hola hola wojowniku, anonimowo to każdy wyszczekany. </span>
-            <img src="/people/najman.webp" alt="">
-            <span class="najman-txt">Dostęp do forum tylko dla zalogowanych!</span>
-        </div>
-    </main> -->
+        
 
     <footer class="footer">
         <div class="footer__container">
