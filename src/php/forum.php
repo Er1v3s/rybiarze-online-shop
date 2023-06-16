@@ -158,11 +158,12 @@
                 die("Błąd połączenia z bazą danych: " . mysqli_connect_error());
             }
 
-            $query = "SELECT posts.Title, posts.Introduction, posts.BodyText, posts.Created, users.email FROM posts JOIN users ON posts.ForumUserId = users.Id";
+            $query = "SELECT posts.Id ,posts.Title, posts.Introduction, posts.BodyText, posts.Created, users.email FROM posts JOIN users ON posts.ForumUserId = users.Id";
 
             $result = mysqli_query($connection, $query);
 
             while ($row = mysqli_fetch_assoc($result)) {
+                $postId = $row['Id'];
                 $title = $row['Title'];
                 $introduction = $row['Introduction'];
                 $created = $row['Created'];
@@ -170,7 +171,9 @@
                 $author = preg_replace('/@.*$/', '', $author);
 
 
-                echo '<a href="/article/@post.Id">';
+                echo '<a href="/api/post.php?id=';
+                echo $postId;
+                echo '">';
                 echo '<div class="forum-main__post">';
                 echo '<div class="forum-main__post-header">';
                 echo '<h1>' . $title . '</h1>';
@@ -188,22 +191,6 @@
 
             mysqli_free_result($result);
         ?>
-
-        <!-- <a href="/article/@post.Id">
-            <div class="forum-main__post">
-                <div class="forum-main__post-header">
-                    <h1>Jaki haczyk najlepszy na początek?</h1>
-                    <p>Witajcie drodzy wędkarze ja z takim szybkim pytaniem jaki haczyk na początek najlpeszy</p>
-                </div>
-                <div class="forum-main__post-info">
-                    <time>15.06.2023r.</time>
-                    <div class="forum-main__post-user">
-                        <h4>Filip Statkiewicz</h4>
-                    </div>
-                </div>
-            </div>
-        </a> -->
-
     </main>
         
 

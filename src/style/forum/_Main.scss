@@ -1,35 +1,3 @@
-// .forum-main {
-//     background-color: $defaul-elements-color;
-//     padding-top: 200px;
-//     padding-bottom: 100px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     .najman {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-
-//         &-txt {
-//             padding: $margin-desktop;
-//             text-align: center;
-//             font-size: 4vw;
-//             font-weight: bolder;
-//             color: white;
-
-//             @include media-min-width(xmedium) {
-//                 top: 20%;
-//                 font-size: 2.5vw;
-//             }
-//         }
-
-//         img {
-//             width: 50%;
-//         }
-//     }
-// }
-
 .forum-main {
     display: flex;
     flex-direction: column;
@@ -44,7 +12,8 @@
     }
 
     &__post {
-        display: flex;
+        display: grid;
+        grid-template-columns: 10fr 2fr;
         justify-content: space-between;
         width: 95vw;
         background-color: $defaul-elements-color;
@@ -52,6 +21,7 @@
         box-shadow: 0px 0px 25px 0px $defaul-elements-color;
         border-radius: 15px;
         margin-bottom: 25px;
+        color: $defaul-text-color;
     }
 
     &__post-header {
@@ -65,12 +35,30 @@
         flex-direction: column;
         justify-content: space-between;
         text-align: right;
+        grid-row: span 2;
+    }
+
+    &__post-content {
+        margin-top: $tags-separator-desktop;
     }
 
     &__post-user {
         color: navajowhite;
     }
 
+    // Comments
 
-   
+    &__comment {
+        grid-template-columns: 1fr;
+    }
+
+    &__comment-text-wrapper {
+        margin-top: $margin-desktop;
+    }
+
+    &__comment-info {
+        display: flex;
+        flex-direction: row;
+        grid-row: 1;
+    }
 }
