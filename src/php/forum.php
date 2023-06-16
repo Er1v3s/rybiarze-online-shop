@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+
+    if (!isset($_SESSION['loggedin'])) {
+        header('Location: ../rybiarze-online-shop/index.html');
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -24,6 +33,26 @@
 </head>
 
 <body>
+
+    <?php
+        if (isset($_SESSION['addPostMessage'])) {
+            echo '<div id="addPostMessage" style="transition:1s; transform: translate(-50%, 0); ';
+            if($_SESSION['result'] == 1){
+                echo 'background-color: green;';
+            } else {
+                echo 'background-color: red;';
+            }
+            echo '">';
+            echo '<h2>';
+            echo $_SESSION['addPostMessage'];
+            echo '</h2>';
+            echo '<div id="close_message_button" class="fa-solid fa-xmark"></div>';
+            echo '</div>';
+
+            unset($_SESSION['addPostMessage']);
+            unset($_SESSION['result']);
+        }
+    ?>
 
     <header class="page-header">
         <nav class="nav">
@@ -82,88 +111,30 @@
         </nav>
     </header>
 
-    <header class="page-header">
-        <nav class="nav">
-            <div class="nav__container">
-                <div class="nav__logo">
-                    <a href="./index.html">
-                        <img src="/logo-white.svg" alt="logo sklepu">
-                    </a>
-                </div>
-
-                <div class="nav__burger not-active">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <div class="nav__menu">
-                    <ul>
-                        <li><a href="./index.html">Strona główna</a></li>
-                        <li><a href="./pages/shop.html">Sklep</a></li>
-                        <li><a href="./pages/blog.html">Blog</a></li>
-                        <li><a href="/api/forum.php">Forum</a></li>
-                        <li><a href="./pages/about.html">O firmie</a></li>
-                    </ul>
-                </div>
-
-                <div class="nav__options">
-                    <ul>
-                        <li>
-                            <a href="/api/loginPage.php">
-                                <i class="fa-solid fa-user"></i>
-                                <span>Twoje konto</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                <span>Koszyk</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="nav__mobile-menu">
-                <ul>
-                    <li><a href="./index.html">Strona główna</a></li>
-                    <li><a href="./pages/shop.html">Sklep</a></li>
-                    <li><a href="./pages/blog.html">Blog</a></li>
-                    <li><a href="/api/forum.php">Forum</a></li>
-                    <li><a href="./pages/about.html">O firmie</a></li>
-                </ul>
-            </div>
-
-        </nav>
-
-    </header>
-
     <main class="forum-main">
         <div class="forum-main__creating-post">
             <h2>Dodaj Post</h2>
             <hr />
-            <form>
+            <form action="/api/insertPostToDB.php" method="post" autocomplete="no">
                 <div>
                     <label for="validation1" class="forum-main__form-label">
                         <h3>Tytuł</h3>
                     </label>
-                    <input type="text" id="validation1" class="forum-main__input" required />
+                    <input type="text" name="title", id="validation1" class="forum-main__input" required />
                 </div>
 
                 <div>
                     <label for="validation2" class="forum-main__form-label">
                         <h3>Krótki opis</h3>
                     </label>
-                    <input type="text" id="validation2" class="forum-main__input" required />
+                    <input type="text" name="introduction" id="validation2" class="forum-main__input" required />
                 </div>
 
                 <div>
                     <label for="validation3" class="forum-main__form-label">
                         <h3>Treść wpisu</h3>
                     </label>
-                    <textarea id="validation3" class="forum-main__input" required>
+                    <textarea name="bodyText" id="validation3" class="forum-main__input" required>
 
                     </textarea>
                 </div>
@@ -335,6 +306,7 @@
         </div>
     </footer>
 
+    <script type="module" src="../scripts/forum-post-scripts.ts"></script>
     <script type="module" src="../main.ts"></script>
 </body>
 

@@ -30,7 +30,7 @@
                 session_regenerate_id();
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['name'] = preg_replace('/@.*$/', '', $_POST['email']);
-                $_SESSION['id'] = $id;
+                $_SESSION['UserId'] = $id;
                 echo 'Welcome ' . $_SESSION['name'] . '!';
             } else {
                 echo 'Incorrect email and/or password!';
