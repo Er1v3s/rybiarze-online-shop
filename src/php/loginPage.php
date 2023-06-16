@@ -97,6 +97,15 @@
                 <span class="login-main__title">
                     Logowanie
                 </span>
+                <div class="login-main__error-wrapper">
+                    <?php
+                        if (isset($_SESSION['error'])) {
+                            echo $_SESSION['error'];
+                        }
+
+                        unset($_SESSION['error']);
+                    ?>
+                </div>
                 <div class="login-main__email-wrapper" data-validate="Valid email is required: ex@abc.xyz">
                     <input class="login-main__email" type="text" name="email" id="email" placeholder="Email" required>
                 </div>

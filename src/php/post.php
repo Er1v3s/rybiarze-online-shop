@@ -1,10 +1,5 @@
 <?php 
     session_start();
-
-    if (!isset($_SESSION['loggedin'])) {
-        header('Location: ../rybiarze-online-shop/index.html');
-        exit;
-    }
 ?>
 
 <!DOCTYPE html>
@@ -161,18 +156,24 @@
         ?>
 
         <div class="forum-main__creating-post">
-            <h2>Dodaj komentarz</h2>
-            <hr>
-            <form action="/api/createComment.php" method="post" autocomplete="no">
-                <div>
-                    <input type="text" name="comment", id="validation1" class="forum-main__input" required />
-
-                    <input type="hidden" name="postId" value="<?php echo $postId; ?>">
-                </div>
-                <div>
-                    <button type="submit" class="forum-main__submit-button">Dodaj komentarz</button>
-                </div>
-            </form>
+            <?php
+                if (!isset($_SESSION['loggedin'])) {
+                    echo '<span class="forum-main__error">Dodawanie komentarzy na forum tylko dla zalogowanych użytkowników.</span>';
+                } else {
+                    echo '<h2>Dodaj komentarz</h2>
+                    <hr>
+                    <form action="/api/createComment.php" method="post" autocomplete="no">
+                        <div>
+                            <input type="text" name="comment", id="validation1" class="forum-main__input" required />
+        
+                            <input type="hidden" name="postId" value="'; echo $postId; echo'">
+                        </div>
+                        <div>
+                            <button type="submit" class="forum-main__submit-button">Dodaj komentarz</button>
+                        </div>
+                    </form>';
+                }
+            ?>
         </div>
 
         <?php

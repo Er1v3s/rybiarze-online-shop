@@ -31,16 +31,18 @@
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['name'] = preg_replace('/@.*$/', '', $_POST['email']);
                 $_SESSION['UserId'] = $id;
-                echo 'Welcome ' . $_SESSION['name'] . '!';
+                
+                header("Location: ./success.php");
             } else {
-                echo 'Incorrect email and/or password!';
+                $_SESSION['error'] = 'Niepoprawny login lub hasło';
+                header("Location: loginPage.php");
             }
         } else {
-            echo 'Incorrect email and/or password!';
+            $_SESSION['error'] = 'Niepoprawny login lub hasło';
+            header("Location: loginPage.php");
+            exit;
         }
 
         $stmt->close();
     }
-
-    header("Location: ./success.php");
 ?>

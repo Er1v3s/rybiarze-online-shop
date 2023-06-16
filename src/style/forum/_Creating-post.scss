@@ -6,6 +6,7 @@
         box-shadow: 0px 0px 25px 0px $defaul-elements-color;
         border-radius: 15px;
         margin-bottom: 25px;
+        color: $defaul-text-color;
 
         h2 {
             color: white;
@@ -37,6 +38,11 @@
         flex-direction: column;
         gap: 15px;
         color: white;
+    }
+
+    &__error {
+        font-size: $large-font-size;
+        color: red;
     }
 }
 

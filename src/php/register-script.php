@@ -33,13 +33,11 @@
     if (mysqli_stmt_num_rows($statement) > 0) {
         $_SESSION['error'] = 'Użytkownik o podanym adresie e-mail istnieje w naszej bazie';
         header("Location: register.php");
-        exit;
     }
 
     if ($password !== $confirm_password) {
         $_SESSION['error'] = 'Hasła się nie pokrywają';
         header("Location: register.php");
-        exit;
     }
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);

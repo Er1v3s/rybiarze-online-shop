@@ -1,10 +1,5 @@
 <?php 
     session_start();
-
-    if (!isset($_SESSION['loggedin'])) {
-        header('Location: ../rybiarze-online-shop/index.html');
-        exit;
-    }
 ?>
 
 <!DOCTYPE html>
@@ -113,36 +108,42 @@
 
     <main class="forum-main">
         <div class="forum-main__creating-post">
-            <h2>Dodaj Post</h2>
-            <hr />
-            <form action="/api/insertPostToDB.php" method="post" autocomplete="no">
-                <div>
-                    <label for="validation1" class="forum-main__form-label">
-                        <h3>Tytuł</h3>
-                    </label>
-                    <input type="text" name="title", id="validation1" class="forum-main__input" required />
-                </div>
-
-                <div>
-                    <label for="validation2" class="forum-main__form-label">
-                        <h3>Krótki opis</h3>
-                    </label>
-                    <input type="text" name="introduction" id="validation2" class="forum-main__input" required />
-                </div>
-
-                <div>
-                    <label for="validation3" class="forum-main__form-label">
-                        <h3>Treść wpisu</h3>
-                    </label>
-                    <textarea name="bodyText" id="validation3" class="forum-main__input" required>
-
-                    </textarea>
-                </div>
-
-                <div>
-                    <button type="submit" class="forum-main__submit-button">Dodaj post</button>
-                </div>
-            </form>
+            <?php
+                if (!isset($_SESSION['loggedin'])) {
+                    echo '<span class="forum-main__error">Dodawanie postów na forum tylko dla zalogowanych użytkowników.</span>';
+                } else {
+                    echo '<h2>Dodaj Post</h2>
+                    <hr />
+                    <form action="/api/insertPostToDB.php" method="post" autocomplete="no">
+                        <div>
+                            <label for="validation1" class="forum-main__form-label">
+                                <h3>Tytuł</h3>
+                            </label>
+                            <input type="text" name="title", id="validation1" class="forum-main__input" required />
+                        </div>
+        
+                        <div>
+                            <label for="validation2" class="forum-main__form-label">
+                                <h3>Krótki opis</h3>
+                            </label>
+                            <input type="text" name="introduction" id="validation2" class="forum-main__input" required />
+                        </div>
+        
+                        <div>
+                            <label for="validation3" class="forum-main__form-label">
+                                <h3>Treść wpisu</h3>
+                            </label>
+                            <textarea name="bodyText" id="validation3" class="forum-main__input" required>
+        
+                            </textarea>
+                        </div>
+        
+                        <div>
+                            <button type="submit" class="forum-main__submit-button">Dodaj post</button>
+                        </div>
+                    </form>';
+                }
+            ?>
         </div>
 
         <?php
