@@ -7,15 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Rybiarze - forum</title>
-    <meta name="description"
-        content="Najlepszy sklep online ze sprzętem wędkarskim, duza baza produków w super niskich cenach, Zamów juz dzis a na jutrzejszy wyjazd wszsytko będziesz miał dostarczone przez kuriera bądź do paczkomatu!">
-    <meta name='keywords'
-        content='sklep wędkarski, wędki, kołowrotki, haczyki, spławiki, przynęty, siatki, podbieraki, cięzarki,'>
-    <meta name='robots' content='index,follow'>
 
     <meta name="format-detection" content="telephone=no" />
 
-    <link rel="icon" href="./favicon.svg">
+    <link rel="icon" href="public/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -28,9 +23,7 @@
     <base href="/rybiarze-online-shop/" />
 </head>
 
-<body>
-
-    <header class="page-header">
+<header class="page-header">
         <nav class="nav">
             <div class="nav__container">
                 <div class="nav__logo">
@@ -50,7 +43,7 @@
                         <li><a href="./index.html">Strona główna</a></li>
                         <li><a href="./pages/shop.html">Sklep</a></li>
                         <li><a href="./pages/blog.html">Blog</a></li>
-                        <li><a href="./pages/forum.html">Forum</a></li>
+                        <li><a href="/api/forum.php">Forum</a></li>
                         <li><a href="./pages/about.html">O firmie</a></li>
                     </ul>
                 </div>
@@ -79,7 +72,7 @@
                     <li><a href="./index.html">Strona główna</a></li>
                     <li><a href="./pages/shop.html">Sklep</a></li>
                     <li><a href="./pages/blog.html">Blog</a></li>
-                    <li><a href="./pages/forum.html">Forum</a></li>
+                    <li><a href="/api/forum.php">Forum</a></li>
                     <li><a href="./pages/about.html">O firmie</a></li>
                 </ul>
             </div>
@@ -122,6 +115,39 @@
             </form>
         </div>
 
+        <!-- <?php 
+            $DATABASE_HOST = 'localhost';
+            $DATABASE_USER = 'root';
+            $DATABASE_PASS = '';
+            $DATABASE_NAME = 'RybiarzeDB';
+        
+            $connection = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+
+            if ($mysqli->connect_error) {
+                die("Błąd połączenia z bazą danych: " . $mysqli->connect_error);
+            }
+            
+            // Zapytanie SQL do pobrania wszystkich postów
+            $sql = "SELECT * FROM nazwa_tabeli_postów";
+            $result = $mysqli->query($sql);
+            
+            // Sprawdzenie czy zapytanie zwróciło wyniki
+            if ($result->num_rows > 0) {
+                // Przetwarzanie każdego wiersza wynikowego
+                while ($row = $result->fetch_assoc()) {
+                    $postId = $row['Id'];
+                    $postTitle = $row['tytuł'];
+                    $postContent = $row['treść'];
+                    $postDate = $row['data'];
+                    $postAuthor = $row['autor'];
+                }
+            } else {
+                echo "Brak postów w bazie danych.";
+            }
+            
+            $mysqli->close();
+        ?>
+
         <a href="/article/@post.Id">
             <div class="forum-main__post">
                 <div class="forum-main__post-header">
@@ -135,7 +161,8 @@
                     </div>
                 </div>
             </div>
-        </a>
+        </a> -->
+
     </main>
 
     <!-- <main class="forum-main">

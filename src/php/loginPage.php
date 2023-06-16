@@ -54,7 +54,7 @@
                 <li><a href="index.html">Strona główna</a></li>
                 <li><a href="./pages/shop.html">Sklep</a></li>
                 <li><a href="./pages/blog.html">Blog</a></li>
-                <li><a href="./pages/forum.html">Forum</a></li>
+                <li><a href="/api/forum.php">Forum</a></li>
                 <li><a href="./pages/about.html">O firmie</a></li>
             </ul>
             </div>
@@ -83,7 +83,7 @@
             <li><a href="index.html">Strona główna</a></li>
             <li><a href="./pages/shop.html">Sklep</a></li>
             <li><a href="./pages/blog.html">Blog</a></li>
-            <li><a href="./pages/forum.html">Forum</a></li>
+            <li><a href="/api/forum.php">Forum</a></li>
             <li><a href="./pages/about.html">O firmie</a></li>
             </ul>
         </div>
