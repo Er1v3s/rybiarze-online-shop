@@ -123,7 +123,7 @@
                 die("Błąd połączenia z bazą danych: " . mysqli_connect_error());
             }
 
-            $query = "SELECT posts.Id ,posts.Title, posts.Introduction, posts.BodyText, posts.Created, users.email FROM posts JOIN users ON posts.ForumUserId = users.Id WHERE posts.Id = $postId ";
+            $query = "SELECT posts.Id ,posts.Title, posts.Introduction, posts.BodyText, posts.Created, users.email, users.Id as userId FROM posts JOIN users ON posts.ForumUserId = users.Id WHERE posts.Id = $postId ";
 
             $result = mysqli_query($connection, $query);
 
@@ -134,6 +134,7 @@
                 $bodyText = $row['BodyText'];
                 $author = $row['email'];
                 $author = preg_replace('/@.*$/', '', $author);
+                $authorId = $row['userId'];
 
                 echo '<div class="forum-main__post">';
                 echo '<div class="forum-main__post-header">';
@@ -144,6 +145,12 @@
                 echo '<time>' . $created . '</time>';
                 echo '<div class="forum-main__post-user">';
                 echo '<h4>' . $author . '</h4>';
+                if($authorId == $_SESSION['UserId']) {
+                    echo '<form action="/api/delete-post.php" method="post">';
+                    echo '<input type="hidden" name="postId" value="'; echo $postId; echo'">';
+                    echo '<button class="forum-main__delete_post" type="submit">Usuń post</button>';
+                    echo '</form>';
+                }
                 echo '</div>';
                 echo '</div>';
                 echo '<div class="forum-main__post-content">';
@@ -189,7 +196,7 @@
                 die("Błąd połączenia z bazą danych: " . mysqli_connect_error());
             }
 
-            $query = "SELECT comments.CommentText, comments.Created, users.Email FROM comments JOIN posts ON posts.Id = comments.PostId JOIN users ON users.Id = comments.ForumUserId WHERE posts.Id = $postId";
+            $query = "SELECT comments.Id as commentId, comments.CommentText, comments.Created, users.Email, users.Id as userId FROM comments JOIN posts ON posts.Id = comments.PostId JOIN users ON users.Id = comments.ForumUserId WHERE posts.Id = $postId";
 
             $result = mysqli_query($connection, $query);
 
@@ -198,6 +205,8 @@
                 $created = $row['Created'];
                 $author = $row['Email'];
                 $author = preg_replace('/@.*$/', '', $author);
+                $authorId = $row['userId'];
+                $commentId = $row['commentId'];
 
 
                 echo '<div class="forum-main__post forum-main__comment">';
@@ -209,6 +218,15 @@
                 echo '</div>';
                 echo '<div class="forum-main__post-header forum-main__comment-text-wrapper">';
                 echo '<p>' . $CommentText . '</p>';
+                echo '</div>';
+                echo '<div>';
+                if($authorId == $_SESSION['UserId']) {
+                    echo '<form action="/api/delete-comment.php" method="post">';
+                    echo '<input type="hidden" name="commentId" value="'; echo $commentId; echo'">';
+                    echo '<input type="hidden" name="postId" value="'; echo $postId; echo'">';
+                    echo '<button class="forum-main__delete_comment" type="submit">Usuń komentarz</button>';
+                    echo '</form>';
+                }
                 echo '</div>';
                 echo '</div>';
             }
